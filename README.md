@@ -16,12 +16,7 @@
   - 賓果號碼在賓果卡必須連成垂直、水平或對角線才有賓果
 
 ### 測試案例
-#### 產生賓果卡
-[ 'B10', 'B2', 'B1', 'B11', 'B15', <br>
-'I25', 'I17', 'I29', 'I16', 'I22', <br>
-'N31', 'N45', 'FREE SPACE', 'N35', 'N41', <br>
-'G55', 'G59', 'G51', 'G48', 'G54', <br>
-'O61', 'O70', 'O74', 'O67', 'O66']
+#### 產生賓果卡 (Bingo Card)
 | 'B' | 'I' | 'N' | 'G' | 'O' |
 | :----: | :----: | :----: | :----: | :----: |
 | 10 | 25 | 31 | 55 | 61 |
@@ -30,13 +25,22 @@
 | 11 | 16 | 35 | 48 | 67 |
 | 15 | 22 | 41 | '54 | 66 |
 
-#### 產生賓果號碼
+| test case |
+| :----: |
+| CreateColumnB  |
+| CreateColumnI | 
+| CreateColumnN | 
+| CreateColumnG | 
+| CreateColumnO |
+| CreateBingoCard |
+
+#### 產生賓果號碼 (Bingo Numbers)
 ['B10', 'I25', 'N31', 'G55', 'O61'] <br>
 ['B10', 'I14', 'N31', 'G48', 'O66'] <br>
 ['B15', 'I16', 'N31', 'G59', 'O61'] <br>
 ['I25', 'I14', 'I29', 'I16', 'I22']
 
-#### 檢查賓果
+#### 檢查賓果 (Bingo Line)
 水平線 (vertical line) <br>
 重直線 (horizontal line) <br>
 對角線 (diagonal line)
