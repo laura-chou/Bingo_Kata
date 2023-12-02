@@ -1,4 +1,4 @@
-﻿namespace Bingo.src
+namespace Bingo.src
 {
     public class BingoCard
     {
@@ -18,6 +18,10 @@
                 Column4 = randomNumberList[3],
                 Column5 = randomNumberList[4]
             };
+        }
+        public Column CreateColumnI()
+        {
+            throw new NotImplementedException();
         }
     }
 }

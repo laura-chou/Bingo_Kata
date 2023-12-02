@@ -29,10 +29,34 @@ namespace Bingo
             };
             actual.Should().BeEquivalentTo(expected);
         }
+        
+        [Test]
+        public void A02_CreateColumnI()
+        {
+            var actual = _bingoCard.CreateColumnI();
+            var expected = new Column
+            {
+                Column1 = ValidateColumnINumber(actual.Column1) ? actual.Column1 : 0,
+                Column2 = ValidateColumnINumber(actual.Column2) ? actual.Column2 : 0,
+                Column3 = ValidateColumnINumber(actual.Column3) ? actual.Column3 : 0,
+                Column4 = ValidateColumnINumber(actual.Column4) ? actual.Column4 : 0,
+                Column5 = ValidateColumnINumber(actual.Column5) ? actual.Column5 : 0
+            };
+            actual.Should().BeEquivalentTo(expected);
+        }
 
         private bool ValidateColumnBNumber(int columnNumber)
         {
             if (columnNumber >= 1 && columnNumber <= 15)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        private bool ValidateColumnINumber(int columnNumber)
+        {
+            if (columnNumber >= 16 && columnNumber <= 30)
             {
                 return true;
             }
