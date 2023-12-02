@@ -7,11 +7,18 @@ namespace Bingo
     [TestFixture]
     public class BingoCardTest
     {
+        private BingoCard _bingoCard;
+
+        [SetUp]
+        public void A00_SetUp()
+        {
+            _bingoCard = new BingoCard();
+        }
+
         [Test]
         public void A01_CreateColumnB()
         {
-            var bingoCard = new BingoCard();
-            var actual = bingoCard.CreateColumnB();
+            var actual = _bingoCard.CreateColumnB();
             var expected = new Column
             {
                 Column1 = ValidateColumnBNumber(actual.Column1) ? actual.Column1 : 0,
