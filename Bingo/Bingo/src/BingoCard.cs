@@ -4,13 +4,19 @@
     {
         public Column CreateColumnB()
         {
+            Random random = new Random();
+            var randomNumberList = Enumerable.Range(1, 15)
+                .OrderBy(x => random.Next())
+                .Take(5)
+                .ToList();
+
             return new Column
             {
-                Column1 = 10,
-                Column2 = 2,
-                Column3 = 1,
-                Column4 = 11,
-                Column5 = 15
+                Column1 = randomNumberList[0],
+                Column2 = randomNumberList[1],
+                Column3 = randomNumberList[2],
+                Column4 = randomNumberList[3],
+                Column5 = randomNumberList[4]
             };
         }
     }
