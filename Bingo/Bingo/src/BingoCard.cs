@@ -24,6 +24,11 @@ namespace Bingo.src
             return GetColumn(randomNumberList);
         }
 
+        public SpecialColumn CreateColumnN()
+        {
+            throw new NotImplementedException();
+        }
+
         private Column GetColumn(List<int> randomNumberList)
         {
             return new Column
