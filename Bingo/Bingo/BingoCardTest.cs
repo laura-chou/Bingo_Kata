@@ -21,44 +21,49 @@ namespace Bingo
             var actual = _bingoCard.CreateColumnB();
             var expected = new Column
             {
-                Column1 = ValidateColumnBNumber(actual.Column1) ? actual.Column1 : 0,
-                Column2 = ValidateColumnBNumber(actual.Column2) ? actual.Column2 : 0,
-                Column3 = ValidateColumnBNumber(actual.Column3) ? actual.Column3 : 0,
-                Column4 = ValidateColumnBNumber(actual.Column4) ? actual.Column4 : 0,
-                Column5 = ValidateColumnBNumber(actual.Column5) ? actual.Column5 : 0
+                Column1 = ValidateColumnNumber("B", actual.Column1) ? actual.Column1 : 0,
+                Column2 = ValidateColumnNumber("B", actual.Column2) ? actual.Column2 : 0,
+                Column3 = ValidateColumnNumber("B", actual.Column3) ? actual.Column3 : 0,
+                Column4 = ValidateColumnNumber("B", actual.Column4) ? actual.Column4 : 0,
+                Column5 = ValidateColumnNumber("B", actual.Column5) ? actual.Column5 : 0
             };
             actual.Should().BeEquivalentTo(expected);
         }
-        
+
         [Test]
         public void A02_CreateColumnI()
         {
             var actual = _bingoCard.CreateColumnI();
             var expected = new Column
             {
-                Column1 = ValidateColumnINumber(actual.Column1) ? actual.Column1 : 0,
-                Column2 = ValidateColumnINumber(actual.Column2) ? actual.Column2 : 0,
-                Column3 = ValidateColumnINumber(actual.Column3) ? actual.Column3 : 0,
-                Column4 = ValidateColumnINumber(actual.Column4) ? actual.Column4 : 0,
-                Column5 = ValidateColumnINumber(actual.Column5) ? actual.Column5 : 0
+                Column1 = ValidateColumnNumber("I", actual.Column1) ? actual.Column1 : 0,
+                Column2 = ValidateColumnNumber("I", actual.Column2) ? actual.Column2 : 0,
+                Column3 = ValidateColumnNumber("I", actual.Column3) ? actual.Column3 : 0,
+                Column4 = ValidateColumnNumber("I", actual.Column4) ? actual.Column4 : 0,
+                Column5 = ValidateColumnNumber("I", actual.Column5) ? actual.Column5 : 0
             };
             actual.Should().BeEquivalentTo(expected);
         }
 
-        private bool ValidateColumnBNumber(int columnNumber)
+        private bool ValidateColumnNumber(string columnName, int columnNumber)
         {
-            if (columnNumber >= 1 && columnNumber <= 15)
+            var min = 1;
+            var max = 75;
+            switch (columnName)
             {
-                return true;
+                case "B":
+                    max = 15;
+                    break;
+                case "I":
+                    min = 16;
+                    max = 30;
+                    break;
             }
-            return false;
-        }
 
-        private bool ValidateColumnINumber(int columnNumber)
-        {
-            if (columnNumber >= 16 && columnNumber <= 30)
+            if (columnNumber >= min && columnNumber <= max)
             {
                 return true;
+
             }
             return false;
         }
