@@ -4,7 +4,7 @@ namespace Bingo.src
     {
         private Random _random = new Random();
 
-        public Column CreateColumnB()
+        public NormalColumn CreateColumnB()
         {
             var randomNumberList = Enumerable.Range(1, 15)
                 .OrderBy(x => _random.Next())
@@ -14,7 +14,7 @@ namespace Bingo.src
             return GetColumn(randomNumberList);
         }
 
-        public Column CreateColumnI()
+        public NormalColumn CreateColumnI()
         {
             var randomNumberList = Enumerable.Range(16, 15)
                 .OrderBy(x => _random.Next())
@@ -34,6 +34,18 @@ namespace Bingo.src
             return GetSpecialColumn(randomNumberList);
         }
 
+        private NormalColumn GetColumn(List<int> randomNumberList)
+        {
+            return new NormalColumn
+            {
+                Column1 = randomNumberList[0],
+                Column2 = randomNumberList[1],
+                Column3 = randomNumberList[2],
+                Column4 = randomNumberList[3],
+                Column5 = randomNumberList[4]
+            };
+        }
+
         private SpecialColumn GetSpecialColumn(List<int> randomNumberList)
         {
             return new SpecialColumn
@@ -42,18 +54,6 @@ namespace Bingo.src
                 Column2 = randomNumberList[1],
                 Column4 = randomNumberList[2],
                 Column5 = randomNumberList[3]
-            };
-        }
-
-        private Column GetColumn(List<int> randomNumberList)
-        {
-            return new Column
-            {
-                Column1 = randomNumberList[0],
-                Column2 = randomNumberList[1],
-                Column3 = randomNumberList[2],
-                Column4 = randomNumberList[3],
-                Column5 = randomNumberList[4]
             };
         }
     }

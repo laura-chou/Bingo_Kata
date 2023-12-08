@@ -19,7 +19,7 @@ namespace Bingo
         public void A01_CreateColumnB()
         {
             var actual = _bingoCard.CreateColumnB();
-            var expected = new Column
+            var expected = new NormalColumn
             {
                 Column1 = ValidateColumnNumber("B", actual.Column1) ? actual.Column1 : 0,
                 Column2 = ValidateColumnNumber("B", actual.Column2) ? actual.Column2 : 0,
@@ -34,7 +34,7 @@ namespace Bingo
         public void A02_CreateColumnI()
         {
             var actual = _bingoCard.CreateColumnI();
-            var expected = new Column
+            var expected = new NormalColumn
             {
                 Column1 = ValidateColumnNumber("I", actual.Column1) ? actual.Column1 : 0,
                 Column2 = ValidateColumnNumber("I", actual.Column2) ? actual.Column2 : 0,
