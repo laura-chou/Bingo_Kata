@@ -73,6 +73,21 @@ namespace Bingo
             };
             actual.Should().BeEquivalentTo(expected);
         }
+        
+        [Test]
+        public void A05_CreateColumnO()
+        {
+            var actual = _bingoCard.CreateColumnO();
+            var expected = new NormalColumn
+            {
+                Column1 = ValidateColumnNumber("O", actual.Column1) ? actual.Column1 : 0,
+                Column2 = ValidateColumnNumber("O", actual.Column2) ? actual.Column2 : 0,
+                Column3 = ValidateColumnNumber("O", actual.Column3) ? actual.Column3 : 0,
+                Column4 = ValidateColumnNumber("O", actual.Column4) ? actual.Column4 : 0,
+                Column5 = ValidateColumnNumber("O", actual.Column5) ? actual.Column5 : 0
+            };
+            actual.Should().BeEquivalentTo(expected);
+        }
 
         private bool ValidateColumnNumber(string columnName, int columnNumber)
         {
@@ -94,6 +109,9 @@ namespace Bingo
                 case "G":
                     min = 46;
                     max = 60;
+                    break;
+                case "O":
+                    min = 61;
                     break;
             }
 
