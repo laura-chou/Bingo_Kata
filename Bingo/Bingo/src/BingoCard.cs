@@ -16,7 +16,12 @@ namespace Bingo.src
 
         public NormalColumn CreateColumnG()
         {
-            throw new NotImplementedException();
+            var randomNumberList = Enumerable.Range(46, 15)
+                .OrderBy(x => _random.Next())
+                .Take(5)
+                .ToList();
+
+            return GetColumn(randomNumberList);
         }
 
         public NormalColumn CreateColumnI()
