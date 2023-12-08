@@ -19,14 +19,7 @@ namespace Bingo
         public void A01_CreateColumnB()
         {
             var actual = _bingoCard.CreateColumnB();
-            var expected = new NormalColumn
-            {
-                Column1 = ValidateColumnNumber("B", actual.Column1) ? actual.Column1 : 0,
-                Column2 = ValidateColumnNumber("B", actual.Column2) ? actual.Column2 : 0,
-                Column3 = ValidateColumnNumber("B", actual.Column3) ? actual.Column3 : 0,
-                Column4 = ValidateColumnNumber("B", actual.Column4) ? actual.Column4 : 0,
-                Column5 = ValidateColumnNumber("B", actual.Column5) ? actual.Column5 : 0
-            };
+            var expected = GetNormalColumn(actual, "B");
             actual.Should().BeEquivalentTo(expected);
         }
 
@@ -34,14 +27,7 @@ namespace Bingo
         public void A02_CreateColumnI()
         {
             var actual = _bingoCard.CreateColumnI();
-            var expected = new NormalColumn
-            {
-                Column1 = ValidateColumnNumber("I", actual.Column1) ? actual.Column1 : 0,
-                Column2 = ValidateColumnNumber("I", actual.Column2) ? actual.Column2 : 0,
-                Column3 = ValidateColumnNumber("I", actual.Column3) ? actual.Column3 : 0,
-                Column4 = ValidateColumnNumber("I", actual.Column4) ? actual.Column4 : 0,
-                Column5 = ValidateColumnNumber("I", actual.Column5) ? actual.Column5 : 0
-            };
+            var expected = GetNormalColumn(actual, "I");
             actual.Should().BeEquivalentTo(expected);
         }
 
@@ -63,14 +49,7 @@ namespace Bingo
         public void A04_CreateColumnG()
         {
             var actual = _bingoCard.CreateColumnG();
-            var expected = new NormalColumn
-            {
-                Column1 = ValidateColumnNumber("G", actual.Column1) ? actual.Column1 : 0,
-                Column2 = ValidateColumnNumber("G", actual.Column2) ? actual.Column2 : 0,
-                Column3 = ValidateColumnNumber("G", actual.Column3) ? actual.Column3 : 0,
-                Column4 = ValidateColumnNumber("G", actual.Column4) ? actual.Column4 : 0,
-                Column5 = ValidateColumnNumber("G", actual.Column5) ? actual.Column5 : 0
-            };
+            var expected = GetNormalColumn(actual, "G");
             actual.Should().BeEquivalentTo(expected);
         }
         
@@ -78,15 +57,20 @@ namespace Bingo
         public void A05_CreateColumnO()
         {
             var actual = _bingoCard.CreateColumnO();
-            var expected = new NormalColumn
-            {
-                Column1 = ValidateColumnNumber("O", actual.Column1) ? actual.Column1 : 0,
-                Column2 = ValidateColumnNumber("O", actual.Column2) ? actual.Column2 : 0,
-                Column3 = ValidateColumnNumber("O", actual.Column3) ? actual.Column3 : 0,
-                Column4 = ValidateColumnNumber("O", actual.Column4) ? actual.Column4 : 0,
-                Column5 = ValidateColumnNumber("O", actual.Column5) ? actual.Column5 : 0
-            };
+            var expected = GetNormalColumn(actual, "O");
             actual.Should().BeEquivalentTo(expected);
+        }
+
+        private NormalColumn GetNormalColumn(NormalColumn actual, string columnName)
+        {
+            return new NormalColumn
+            {
+                Column1 = ValidateColumnNumber(columnName, actual.Column1) ? actual.Column1 : 0,
+                Column2 = ValidateColumnNumber(columnName, actual.Column2) ? actual.Column2 : 0,
+                Column3 = ValidateColumnNumber(columnName, actual.Column3) ? actual.Column3 : 0,
+                Column4 = ValidateColumnNumber(columnName, actual.Column4) ? actual.Column4 : 0,
+                Column5 = ValidateColumnNumber(columnName, actual.Column5) ? actual.Column5 : 0
+            };
         }
 
         private bool ValidateColumnNumber(string columnName, int columnNumber)
