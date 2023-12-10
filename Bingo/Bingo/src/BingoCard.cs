@@ -1,5 +1,6 @@
 namespace Bingo.src
 {
+#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
     public class BingoCard
     {
         private Random _random = new Random();
@@ -13,64 +14,39 @@ namespace Bingo.src
         {
             return new BingoCard
             {
-                B = CreateColumnB(),
-                I = CreateColumnI(),
-                N = CreateColumnN(),
-                G = CreateColumnG(),
-                O = CreateColumnO()
+                B = (NormalColumn)CreateColumn("B"),
+                I = (NormalColumn)CreateColumn("I"),
+                N = (SpecialColumn)CreateColumn("N"),
+                G = (NormalColumn)CreateColumn("G"),
+                O = (NormalColumn)CreateColumn("O"),
             };
         }
 
-        public NormalColumn CreateColumnB()
+        public IColumn CreateColumn(string columnName)
         {
-            var randomNumberList = Enumerable.Range(1, 15)
+            var minNumberMapper = new Dictionary<string, int>
+            {
+                { "B", 1 },
+                { "I", 16 },
+                { "N", 31 },
+                { "G", 46 },
+                { "O", 61}
+            };
+
+            var randomNumberList = Enumerable.Range(minNumberMapper[columnName], 15)
                 .OrderBy(x => _random.Next())
-                .Take(5)
+                .Take(IsSpecialColumn(columnName) ? 4 : 5)
                 .ToList();
+
+            if (IsSpecialColumn(columnName))
+            {
+                return GetSpecialColumn(randomNumberList);
+            }
 
             return GetColumn(randomNumberList);
         }
 
-        public NormalColumn CreateColumnG()
-        {
-            var randomNumberList = Enumerable.Range(46, 15)
-                .OrderBy(x => _random.Next())
-                .Take(5)
-                .ToList();
-
-            return GetColumn(randomNumberList);
-        }
-
-        public NormalColumn CreateColumnI()
-        {
-            var randomNumberList = Enumerable.Range(16, 15)
-                .OrderBy(x => _random.Next())
-                .Take(5)
-                .ToList();
-
-            return GetColumn(randomNumberList);
-        }
-
-        public SpecialColumn CreateColumnN()
-        {
-            var randomNumberList = Enumerable.Range(31, 15)
-                .OrderBy(x => _random.Next())
-                .Take(4)
-                .ToList();
-
-            return GetSpecialColumn(randomNumberList);
-        }
-
-        public NormalColumn CreateColumnO()
-        {
-            var randomNumberList = Enumerable.Range(61, 15)
-                .OrderBy(x => _random.Next())
-                .Take(5)
-                .ToList();
-
-            return GetColumn(randomNumberList);
-        }
-        private NormalColumn GetColumn(List<int> randomNumberList)
+        private IColumn GetColumn(List<int> randomNumberList)
         {
             return new NormalColumn
             {
@@ -91,6 +67,11 @@ namespace Bingo.src
                 Column4 = randomNumberList[2],
                 Column5 = randomNumberList[3]
             };
+        }
+
+        private bool IsSpecialColumn(string columnName)
+        {
+            return columnName == "N";
         }
     }
 }

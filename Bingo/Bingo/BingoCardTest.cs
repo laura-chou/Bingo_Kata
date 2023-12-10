@@ -18,40 +18,40 @@ namespace Bingo
         [Test]
         public void A01_CreateColumnB()
         {
-            var actual = _bingoCard.CreateColumnB();
-            var expected = GetNormalColumn(actual, "B");
+            var actual = _bingoCard.CreateColumn("B");
+            var expected = GetNormalColumn((NormalColumn)actual, "B");
             actual.Should().BeEquivalentTo(expected);
         }
 
         [Test]
         public void A02_CreateColumnI()
         {
-            var actual = _bingoCard.CreateColumnI();
-            var expected = GetNormalColumn(actual, "I");
+            var actual = _bingoCard.CreateColumn("I");
+            var expected = GetNormalColumn((NormalColumn)actual, "I");
             actual.Should().BeEquivalentTo(expected);
         }
 
         [Test]
         public void A03_CreateColumnN()
         {
-            var actual = _bingoCard.CreateColumnN();
-            var expected = GetSpecialColumn(actual, "N");
+            var actual = _bingoCard.CreateColumn("N");
+            var expected = GetSpecialColumn((SpecialColumn)actual, "N");
             actual.Should().BeEquivalentTo(expected);
         }
 
         [Test]
         public void A04_CreateColumnG()
         {
-            var actual = _bingoCard.CreateColumnG();
-            var expected = GetNormalColumn(actual, "G");
+            var actual = _bingoCard.CreateColumn("G");
+            var expected = GetNormalColumn((NormalColumn)actual, "G");
             actual.Should().BeEquivalentTo(expected);
         }
 
         [Test]
         public void A05_CreateColumnO()
         {
-            var actual = _bingoCard.CreateColumnO();
-            var expected = GetNormalColumn(actual, "O");
+            var actual = _bingoCard.CreateColumn("O");
+            var expected = GetNormalColumn((NormalColumn)actual, "O");
             actual.Should().BeEquivalentTo(expected);
         }
         

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Bingo.src
 {
-    public class Column
+    public interface IColumn
     {
         public int Column1 { get; set; }
         public int Column2 { get; set; }
