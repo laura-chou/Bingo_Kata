@@ -3,6 +3,16 @@ namespace Bingo.src
     public class BingoCard
     {
         private Random _random = new Random();
+        public NormalColumn B { get; set; }
+        public NormalColumn G { get; set; }
+        public NormalColumn I { get; set; }
+        public SpecialColumn N { get; set; }
+        public NormalColumn O { get; set; }
+
+        public BingoCard CreateBingoCard()
+        {
+            throw new NotImplementedException();
+        }
 
         public NormalColumn CreateColumnB()
         {
@@ -53,7 +63,6 @@ namespace Bingo.src
 
             return GetColumn(randomNumberList);
         }
-
         private NormalColumn GetColumn(List<int> randomNumberList)
         {
             return new NormalColumn

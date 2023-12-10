@@ -54,6 +54,21 @@ namespace Bingo
             var expected = GetNormalColumn(actual, "O");
             actual.Should().BeEquivalentTo(expected);
         }
+        
+        [Test]
+        public void A06_CreateBingoCard()
+        {
+            var actual = _bingoCard.CreateBingoCard();
+            var expected = new BingoCard
+            {
+                B = GetNormalColumn(actual.B, "B"),
+                I = GetNormalColumn(actual.I, "I"),
+                N = GetSpecialColumn(actual.N, "N"),
+                G = GetNormalColumn(actual.G, "G"),
+                O = GetNormalColumn(actual.O, "O"),
+            };
+            actual.Should().BeEquivalentTo(expected);
+        }
 
         private NormalColumn GetNormalColumn(NormalColumn actual, string columnName)
         {
