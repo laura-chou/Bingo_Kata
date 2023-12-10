@@ -11,7 +11,14 @@ namespace Bingo.src
 
         public BingoCard CreateBingoCard()
         {
-            throw new NotImplementedException();
+            return new BingoCard
+            {
+                B = CreateColumnB(),
+                I = CreateColumnI(),
+                N = CreateColumnN(),
+                G = CreateColumnG(),
+                O = CreateColumnO()
+            };
         }
 
         public NormalColumn CreateColumnB()
