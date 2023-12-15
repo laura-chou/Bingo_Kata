@@ -4,7 +4,7 @@
     {
         public int CreateBRandomNumber()
         {
-            throw new NotImplementedException();
+            return 1;
         }
     }
 }
