@@ -7,11 +7,18 @@ namespace Bingo
     [TestFixture]
     public class BingoNumberTest
     {
+        private BingoNumber _bingoNumber;
+
+        [SetUp]
+        public void A00_SetUp()
+        {
+            _bingoNumber = new BingoNumber();
+        }
+
         [Test]
         public void A01_CreateBRandomNumber()
         {
-            var bingoNumber = new BingoNumber();
-            var actual = bingoNumber.CreateBRandomNumber();
+            var actual = _bingoNumber.CreateBRandomNumber();
             var expected = ValidateColumnNumber("B", actual) ? actual : 0;
             actual.Should().Be(expected);
         }
