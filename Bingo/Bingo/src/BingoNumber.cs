@@ -13,7 +13,7 @@ namespace Bingo.src
 
         public int CreateIRandomNumber()
         {
-            throw new NotImplementedException();
+            return _random.Next(16, 30);
         }
     }
 }
