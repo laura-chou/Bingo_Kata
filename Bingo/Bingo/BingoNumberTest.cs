@@ -22,6 +22,14 @@ namespace Bingo
             var expected = ValidateColumnNumber("B", actual) ? actual : 0;
             actual.Should().Be(expected);
         }
+        
+        [Test]
+        public void A02_CreateIRandomNumber()
+        {
+            var actual = _bingoNumber.CreateIRandomNumber();
+            var expected = ValidateColumnNumber("I", actual) ? actual : 0;
+            actual.Should().Be(expected);
+        }
 
         private bool ValidateColumnNumber(string columnName, int columnNumber)
         {
@@ -31,6 +39,10 @@ namespace Bingo
             {
                 case "B":
                     max = 15;
+                    break;
+                case "I":
+                    min = 16;
+                    max = 30;
                     break;
             }
 

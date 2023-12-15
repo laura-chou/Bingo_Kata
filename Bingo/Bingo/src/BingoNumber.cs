@@ -10,5 +10,10 @@ namespace Bingo.src
         {
             return _random.Next(1, 15);
         }
+
+        public int CreateIRandomNumber()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
