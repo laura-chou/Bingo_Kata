@@ -1,10 +1,13 @@
-﻿namespace Bingo.src
+﻿using System;
+
+namespace Bingo.src
 {
     public class BingoNumber
     {
         public int CreateBRandomNumber()
         {
-            return 1;
+            var random = new Random();
+            return random.Next(1, 15);
         }
     }
 }
