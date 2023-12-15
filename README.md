@@ -40,6 +40,15 @@
 ['B15', 'I16', 'N31', 'G59', 'O61'] <br>
 ['I25', 'I14', 'I29', 'I16', 'I22']
 
+| test case |
+| :----: |
+| CreateBRandomNumber |
+| CreateIRandomNumber | 
+| CreateNRandomNumber | 
+| CreateGRandomNumber | 
+| CreateORandomNumber |
+| CreateRandomNumber |
+
 #### 檢查賓果 (Bingo Line)
 水平線 (vertical line) <br>
 重直線 (horizontal line) <br>
