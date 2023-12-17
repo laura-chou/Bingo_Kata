@@ -8,7 +8,8 @@ namespace Bingo.src
         private readonly Dictionary<string, Tuple<int, int>> _columnRange = new Dictionary<string, Tuple<int, int>>
         {
             { "B", new Tuple<int, int>((int)Minimum.B, (int)Maximum.B) },
-            { "I", new Tuple<int, int>((int)Minimum.C, (int)Maximum.C) }
+            { "I", new Tuple<int, int>((int)Minimum.C, (int)Maximum.C) },
+            { "N", new Tuple<int, int>((int)Minimum.N, (int)Maximum.N) }
         };
 
         public int CreateRandomNumber(string columnName)
