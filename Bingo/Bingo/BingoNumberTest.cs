@@ -30,13 +30,22 @@ namespace Bingo
             var expected = ValidateColumnNumber("I", actual) ? actual : 0;
             actual.Should().Be(expected);
         }
+        
+        [Test]
+        public void A03_CreateNRandomNumber()
+        {
+            var actual = _bingoNumber.CreateRandomNumber("N");
+            var expected = ValidateColumnNumber("N", actual) ? actual : 0;
+            actual.Should().Be(expected);
+        }
 
         private bool ValidateColumnNumber(string columnName, int columnNumber)
         {
             var columnRange = new Dictionary<string, Tuple<int, int>>
             {
                 { "B", new Tuple<int, int>( 1, 15 ) },
-                { "I", new Tuple<int, int>( 16, 30 ) }
+                { "I", new Tuple<int, int>( 16, 30 ) },
+                { "N", new Tuple<int, int>( 31, 45 ) }
             };
 
             if (columnNumber >= columnRange[columnName].Item1 
