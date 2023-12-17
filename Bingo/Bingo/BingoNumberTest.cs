@@ -33,20 +33,14 @@ namespace Bingo
 
         private bool ValidateColumnNumber(string columnName, int columnNumber)
         {
-            var min = 1;
-            var max = 75;
-            switch (columnName)
+            var columnRange = new Dictionary<string, Tuple<int, int>>
             {
-                case "B":
-                    max = 15;
-                    break;
-                case "I":
-                    min = 16;
-                    max = 30;
-                    break;
-            }
+                { "B", new Tuple<int, int>( 1, 15 ) },
+                { "I", new Tuple<int, int>( 16, 30 ) }
+            };
 
-            if (columnNumber >= min && columnNumber <= max)
+            if (columnNumber >= columnRange[columnName].Item1 
+                && columnNumber <= columnRange[columnName].Item2)
             {
                 return true;
 

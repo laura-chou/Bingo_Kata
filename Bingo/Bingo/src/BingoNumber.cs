@@ -8,12 +8,12 @@ namespace Bingo.src
 
         public int CreateBRandomNumber()
         {
-            return _random.Next(1, 15);
+            return _random.Next((int)Minimum.B, (int)Maximum.B);
         }
 
         public int CreateIRandomNumber()
         {
-            return _random.Next(16, 30);
+            return _random.Next((int)Minimum.C, (int)Maximum.C);
         }
     }
 }
