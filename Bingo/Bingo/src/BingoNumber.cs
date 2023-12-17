@@ -4,16 +4,16 @@ namespace Bingo.src
 {
     public class BingoNumber
     {
-        private Random _random = new Random();
-
-        public int CreateBRandomNumber()
+        private readonly Random _random = new();
+        private readonly Dictionary<string, Tuple<int, int>> _columnRange = new Dictionary<string, Tuple<int, int>>
         {
-            return _random.Next((int)Minimum.B, (int)Maximum.B);
-        }
+            { "B", new Tuple<int, int>((int)Minimum.B, (int)Maximum.B) },
+            { "I", new Tuple<int, int>((int)Minimum.C, (int)Maximum.C) }
+        };
 
-        public int CreateIRandomNumber()
+        public int CreateRandomNumber(string columnName)
         {
-            return _random.Next((int)Minimum.C, (int)Maximum.C);
+            return _random.Next(_columnRange[columnName].Item1, _columnRange[columnName].Item1);
         }
     }
 }

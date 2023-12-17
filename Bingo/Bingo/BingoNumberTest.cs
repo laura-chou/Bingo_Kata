@@ -18,7 +18,7 @@ namespace Bingo
         [Test]
         public void A01_CreateBRandomNumber()
         {
-            var actual = _bingoNumber.CreateBRandomNumber();
+            var actual = _bingoNumber.CreateRandomNumber("B");
             var expected = ValidateColumnNumber("B", actual) ? actual : 0;
             actual.Should().Be(expected);
         }
@@ -26,7 +26,7 @@ namespace Bingo
         [Test]
         public void A02_CreateIRandomNumber()
         {
-            var actual = _bingoNumber.CreateIRandomNumber();
+            var actual = _bingoNumber.CreateRandomNumber("I");
             var expected = ValidateColumnNumber("I", actual) ? actual : 0;
             actual.Should().Be(expected);
         }
