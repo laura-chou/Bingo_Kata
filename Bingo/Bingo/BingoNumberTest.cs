@@ -43,9 +43,9 @@ namespace Bingo
         {
             var columnRange = new Dictionary<string, Tuple<int, int>>
             {
-                { "B", new Tuple<int, int>( 1, 15 ) },
-                { "I", new Tuple<int, int>( 16, 30 ) },
-                { "N", new Tuple<int, int>( 31, 45 ) }
+                { "B", new Tuple<int, int>((int)Minimum.B, (int)Maximum.B) },
+                { "I", new Tuple<int, int>((int)Minimum.I, (int)Maximum.I) },
+                { "N", new Tuple<int, int>((int)Minimum.N, (int)Maximum.N) }
             };
 
             if (columnNumber >= columnRange[columnName].Item1 

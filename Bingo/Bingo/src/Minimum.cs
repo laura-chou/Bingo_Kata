@@ -3,7 +3,7 @@
     public enum Minimum
     {
         B = 1,
-        C = 16,
+        I = 16,
         N = 31
     }
 }
