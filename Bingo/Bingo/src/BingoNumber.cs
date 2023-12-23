@@ -21,7 +21,7 @@ namespace Bingo.src
 
         public List<string> GetRandomNumber()
         {
-            throw new NotImplementedException();
+            return new List<string> { "B10", "I25", "N31", "G55", "O61" };
         }
     }
 }
