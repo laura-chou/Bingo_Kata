@@ -1,6 +1,7 @@
 ﻿using Bingo.src;
 using FluentAssertions;
 using NUnit.Framework;
+using NUnit.Framework.Constraints;
 
 namespace Bingo
 {
@@ -53,6 +54,30 @@ namespace Bingo
             var actual = _bingoNumber.CreateRandomNumber("O");
             var expected = ValidateColumnNumber("O", actual) ? actual : 0;
             actual.Should().Be(expected);
+        }
+        
+        [Test]
+        public void A06_GetRandomNumber()
+        {
+            var actual = _bingoNumber.GetRandomNumber();
+            var validateResult = new List<bool>();
+            actual.ForEach(item =>
+            {
+                validateResult.Add(ValidateColumnNumber(item[0].ToString(), int.Parse(item.Substring(1, 2))));
+            });
+            if (validateResult.Contains(false))
+            {
+                throw new ArgumentException("validate number error");
+            }
+            var expected = new List<string> 
+            { 
+                actual[0],
+                actual[1],
+                actual[2],
+                actual[3],
+                actual[4]
+            };
+            actual.Should().BeEquivalentTo(expected);
         }
 
         private bool ValidateColumnNumber(string columnName, int columnNumber)

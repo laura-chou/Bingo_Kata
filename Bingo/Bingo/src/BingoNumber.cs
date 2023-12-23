@@ -18,5 +18,10 @@ namespace Bingo.src
         {
             return _random.Next(_columnRange[columnName].Item1, _columnRange[columnName].Item1);
         }
+
+        public List<string> GetRandomNumber()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
