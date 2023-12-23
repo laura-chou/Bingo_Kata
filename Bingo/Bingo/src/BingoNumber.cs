@@ -19,7 +19,7 @@ namespace Bingo.src
             return _random.Next(_columnRange[columnName].Item1, _columnRange[columnName].Item1);
         }
 
-        public List<string> GetRandomNumber()
+        public List<string> GetBingoNumber()
         {
             return new List<string> { "B10", "I25", "N31", "G55", "O61" };
         }

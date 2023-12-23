@@ -47,7 +47,7 @@
 | CreateNRandomNumber | 
 | CreateGRandomNumber | 
 | CreateORandomNumber |
-| GetRandomNumber |
+| GetBingoNumber |
 
 #### 檢查賓果 (Bingo Line)
 水平線 (vertical line) <br>

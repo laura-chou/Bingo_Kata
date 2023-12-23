@@ -57,9 +57,9 @@ namespace Bingo
         }
         
         [Test]
-        public void A06_GetRandomNumber()
+        public void A06_GetBingoNumber()
         {
-            var actual = _bingoNumber.GetRandomNumber();
+            var actual = _bingoNumber.GetBingoNumber();
             var validateResult = new List<bool>();
             actual.ForEach(item =>
             {
