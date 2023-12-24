@@ -60,14 +60,18 @@ namespace Bingo
         public void A06_GetBingoNumber()
         {
             var actual = _bingoNumber.GetBingoNumber();
-            var validateResult = new List<bool>();
+            var validateNumberResult = new List<bool>();
             actual.ForEach(item =>
             {
-                validateResult.Add(ValidateColumnNumber(item[0].ToString(), int.Parse(item.Substring(1, 2))));
+                validateNumberResult.Add(ValidateColumnNumber(item[0].ToString(), int.Parse(item.Substring(1, 2))));
             });
-            if (validateResult.Contains(false))
+            if (validateNumberResult.Contains(false))
             {
                 throw new ArgumentException("validate number error");
+            }
+            if (actual.GroupBy(item => item).Any(item => item.Count() > 1))
+            {
+                throw new ArgumentException("have repeat number");
             }
             var expected = new List<string> 
             { 
