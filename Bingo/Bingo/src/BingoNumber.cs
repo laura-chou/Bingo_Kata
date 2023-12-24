@@ -16,12 +16,24 @@ namespace Bingo.src
 
         public int CreateRandomNumber(string columnName)
         {
-            return _random.Next(_columnRange[columnName].Item1, _columnRange[columnName].Item1);
+            return _random.Next(_columnRange[columnName].Item1, _columnRange[columnName].Item2);
         }
 
         public List<string> GetBingoNumber()
         {
-            return new List<string> { "B10", "I25", "N31", "G55", "O61" };
+            var columnNameList = new List<string> { "B", "I", "N", "G", "O" };
+            var bingoNumber = new List<string>();
+            while (bingoNumber.Count != 5)
+            {
+                var index = _random.Next(0, columnNameList.Count);
+                var number = CreateRandomNumber(columnNameList[index]);
+                var bingoNumberName = columnNameList[index] + number;
+                if (!bingoNumber.Contains(bingoNumberName))
+                {
+                    bingoNumber.Add(bingoNumberName);
+                }
+            }
+            return bingoNumber;
         }
     }
 }
