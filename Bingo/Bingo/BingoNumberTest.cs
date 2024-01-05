@@ -63,7 +63,7 @@ namespace Bingo
             var validateNumberResult = new List<bool>();
             actual.ForEach(item =>
             {
-                validateNumberResult.Add(ValidateColumnNumber(item[0].ToString(), int.Parse(item.Substring(1, 2))));
+                validateNumberResult.Add(ValidateColumnNumber(item[0].ToString(), int.Parse(item.Remove(0, 1))));
             });
             if (validateNumberResult.Contains(false))
             {
