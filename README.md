@@ -53,3 +53,10 @@
 水平線 (vertical line) <br>
 重直線 (horizontal line) <br>
 對角線 (diagonal line)
+
+| test case |
+| :----: |
+| CheckVerticalLine |
+| CheckHorizontalLine |
+| CheckDiagonalLine |
+| GetBingoLine |
