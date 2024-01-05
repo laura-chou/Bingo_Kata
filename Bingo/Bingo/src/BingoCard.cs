@@ -26,11 +26,11 @@ namespace Bingo.src
         {
             var minNumberMapper = new Dictionary<string, int>
             {
-                { "B", 1 },
-                { "I", 16 },
-                { "N", 31 },
-                { "G", 46 },
-                { "O", 61}
+                { "B", (int)Minimum.B },
+                { "I", (int)Minimum.I },
+                { "N", (int)Minimum.N },
+                { "G", (int)Minimum.G },
+                { "O", (int)Minimum.O }
             };
 
             var randomNumberList = Enumerable.Range(minNumberMapper[columnName], 15)
