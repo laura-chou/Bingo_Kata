@@ -56,7 +56,7 @@
 
 | test case |
 | :----: |
-| CheckVerticalLine |
-| CheckHorizontalLine |
-| CheckDiagonalLine |
-| GetBingoLine |
+| BingoNoLine |
+| BingoVerticalLine |
+| BingoHorizontalLine |
+| BingoDiagonalLine |
