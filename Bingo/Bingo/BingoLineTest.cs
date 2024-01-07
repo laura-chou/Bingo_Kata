@@ -18,13 +18,17 @@ namespace Bingo
         [Test]
         public void A01_BingoNoLine()
         {
-            var bingoCard = GenerateBingoCard();
             var bingoNumber = new List<string>
             {
                 "B2", "I16", "N45", "G52", "O69"
             };
-            var actual = _bingoLine.GetBingoLine(bingoCard, bingoNumber);
-            actual.Should().Be(0);
+            AssertResultShouldReturn(bingoNumber, 0);
+        }
+
+        private void AssertResultShouldReturn(List<string> bingoNumber, int result)
+        {
+            var actual = _bingoLine.GetBingoLine(GenerateBingoCard(), bingoNumber);
+            actual.Should().Be(result);
         }
 
         private BingoCard GenerateBingoCard()
