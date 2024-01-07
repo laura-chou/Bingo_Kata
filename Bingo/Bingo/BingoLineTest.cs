@@ -24,6 +24,16 @@ namespace Bingo
             };
             AssertResultShouldReturn(bingoNumber, 0);
         }
+        
+        [Test]
+        public void A02_BingoVerticalLine()
+        {
+            var bingoNumber = new List<string>
+            {
+                "B15", "B10", "B1", "B9", "B12"
+            };
+            AssertResultShouldReturn(bingoNumber, 1);
+        }
 
         private void AssertResultShouldReturn(List<string> bingoNumber, int result)
         {
