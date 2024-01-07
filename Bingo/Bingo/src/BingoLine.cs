@@ -4,7 +4,7 @@
     {
         public int GetBingoLine(BingoCard bingoCard, List<string> bingoNumber)
         {
-            throw new NotImplementedException();
+            return 0;
         }
     }
 }
