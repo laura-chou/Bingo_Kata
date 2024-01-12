@@ -8,7 +8,7 @@ namespace Bingo
     public class BingoLineTest
     {
         private BingoLine _bingoLine;
-        
+
         [SetUp]
         public void A00_SetUp()
         {
@@ -24,15 +24,12 @@ namespace Bingo
             };
             AssertResultShouldReturn(bingoNumber, 0);
         }
-        
+
         [Test]
-        public void A02_BingoVerticalLine()
+        [TestCase(new string[] { "B15", "B10", "B1", "B9", "B12" }, 1)]
+        public void A02_BingoVerticalLine(string[] bingoNumber, int bingoLine)
         {
-            var bingoNumber = new List<string>
-            {
-                "B15", "B10", "B1", "B9", "B12"
-            };
-            AssertResultShouldReturn(bingoNumber, 1);
+            AssertResultShouldReturn(bingoNumber.ToList(), bingoLine);
         }
 
         private void AssertResultShouldReturn(List<string> bingoNumber, int result)
