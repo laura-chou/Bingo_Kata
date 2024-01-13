@@ -15,13 +15,24 @@ namespace Bingo.src
                 { 
                     LineList = new List<CheckBingoNumber> 
                     {
-                        new CheckBingoNumber { BingoNumber = "B" + bingoCard.B.Column1.ToString(), IsBingo = false },
-                        new CheckBingoNumber { BingoNumber = "B" + bingoCard.B.Column2.ToString(), IsBingo = false },
-                        new CheckBingoNumber { BingoNumber = "B" + bingoCard.B.Column3.ToString(), IsBingo = false },
-                        new CheckBingoNumber { BingoNumber = "B" + bingoCard.B.Column4.ToString(), IsBingo = false },
-                        new CheckBingoNumber { BingoNumber = "B" + bingoCard.B.Column5.ToString(), IsBingo = false }
+                        new CheckBingoNumber { BingoNumber = "B" + bingoCard.B.Column1.ToString() },
+                        new CheckBingoNumber { BingoNumber = "B" + bingoCard.B.Column2.ToString() },
+                        new CheckBingoNumber { BingoNumber = "B" + bingoCard.B.Column3.ToString() },
+                        new CheckBingoNumber { BingoNumber = "B" + bingoCard.B.Column4.ToString() },
+                        new CheckBingoNumber { BingoNumber = "B" + bingoCard.B.Column5.ToString() }
                     }
                 },
+                new Line
+                {
+                    LineList = new List<CheckBingoNumber>
+                    {
+                        new CheckBingoNumber { BingoNumber = "I" + bingoCard.I.Column1.ToString() },
+                        new CheckBingoNumber { BingoNumber = "I" + bingoCard.I.Column2.ToString() },
+                        new CheckBingoNumber { BingoNumber = "I" + bingoCard.I.Column3.ToString() },
+                        new CheckBingoNumber { BingoNumber = "I" + bingoCard.I.Column4.ToString() },
+                        new CheckBingoNumber { BingoNumber = "I" + bingoCard.I.Column5.ToString() }
+                    }
+                }
             };
             BingLineList.ForEach(number =>
             {
