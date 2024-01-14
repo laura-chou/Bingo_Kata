@@ -16,13 +16,10 @@ namespace Bingo
         }
 
         [Test]
-        public void A01_BingoNoLine()
+        [TestCase(new string[] { "B2", "I16", "N45", "G52", "O69" }, 0)]
+        public void A01_BingoNoLine(string[] bingoNumber, int bingoLine)
         {
-            var bingoNumber = new List<string>
-            {
-                "B2", "I16", "N45", "G52", "O69"
-            };
-            AssertResultShouldReturn(bingoNumber, 0);
+            AssertResultShouldReturn(bingoNumber.ToList(), bingoLine);
         }
 
         [Test]
