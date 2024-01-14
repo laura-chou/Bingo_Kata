@@ -31,6 +31,7 @@ namespace Bingo
         [TestCase(new string[] { "N40", "N42", "N39", "N35", "N31" }, 1)]
         [TestCase(new string[] { "G50", "G46", "G59", "G51", "G60" }, 1)]
         [TestCase(new string[] { "O75", "O65", "O68", "O71", "O63" }, 1)]
+        [TestCase(new string[] { "G50", "G46", "G59", "G51", "G60", "N40", "N42", "N35", "N31" }, 1)]
         public void A02_BingoVerticalLine(string[] bingoNumber, int bingoLine)
         {
             AssertResultShouldReturn(bingoNumber.ToList(), bingoLine);
