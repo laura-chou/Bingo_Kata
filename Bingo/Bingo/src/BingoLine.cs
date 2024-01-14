@@ -20,6 +20,11 @@ namespace Bingo.src
                     {
                         line.IsBingo = true;
                     }
+                    if (line.BingoNumber == "FREE SPACE"
+                        && bingoNumber.Where(number => number.Contains("N")).Count() > 4)
+                    {
+                        line.IsBingo = true;
+                    }
                 });
             });
 
@@ -63,7 +68,7 @@ namespace Bingo.src
                     {
                         new CheckBingoNumber { BingoNumber = "N" + bingoCard.N.Column1.ToString() },
                         new CheckBingoNumber { BingoNumber = "N" + bingoCard.N.Column2.ToString() },
-                        new CheckBingoNumber { BingoNumber = bingoCard.N.Column3, IsBingo = true },
+                        new CheckBingoNumber { BingoNumber = bingoCard.N.Column3 },
                         new CheckBingoNumber { BingoNumber = "N" + bingoCard.N.Column4.ToString() },
                         new CheckBingoNumber { BingoNumber = "N" + bingoCard.N.Column5.ToString() }
                     }
