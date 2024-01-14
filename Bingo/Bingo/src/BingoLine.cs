@@ -67,6 +67,17 @@ namespace Bingo.src
                         new CheckBingoNumber { BingoNumber = "N" + bingoCard.N.Column4.ToString() },
                         new CheckBingoNumber { BingoNumber = "N" + bingoCard.N.Column5.ToString() }
                     }
+                },
+                new Line
+                {
+                    LineList = new List<CheckBingoNumber>
+                    {
+                        new CheckBingoNumber { BingoNumber = "G" + bingoCard.G.Column1.ToString() },
+                        new CheckBingoNumber { BingoNumber = "G" + bingoCard.G.Column2.ToString() },
+                        new CheckBingoNumber { BingoNumber = "G" + bingoCard.G.Column3.ToString() },
+                        new CheckBingoNumber { BingoNumber = "G" + bingoCard.G.Column4.ToString() },
+                        new CheckBingoNumber { BingoNumber = "G" + bingoCard.G.Column5.ToString() }
+                    }
                 }
             };
         }
