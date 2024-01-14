@@ -32,8 +32,15 @@ namespace Bingo
         [TestCase(new string[] { "G50", "G46", "G59", "G51", "G60" }, 1)]
         [TestCase(new string[] { "O75", "O65", "O68", "O71", "O63" }, 1)]
         [TestCase(new string[] { "G50", "G46", "G59", "G51", "G60", "N40", "N42", "N35", "N31" }, 1)]
-        [TestCase(new string[] { "B9", "B10", "B12", "B1", "B15", "I20", "I25", "I19", "I29", "I17" }, 2)]
-        [TestCase(new string[] { "B9", "B10", "B12", "B1", "B15", "I20", "I25", "I19", "I29", "I17", "N40", "N42", "N32", "N35", "N31" }, 3)]
+        [TestCase(new string[] { "B9", "B10", "B12", "B1", "B15", 
+                                "I20", "I25", "I19", "I29", "I17" }, 2)]
+        [TestCase(new string[] { "B9", "B10", "B12", "B1", "B15", 
+                                "I20", "I25", "I19", "I29", "I17", 
+                                "N40", "N42", "N32", "N35", "N31" }, 3)]
+        [TestCase(new string[] { "B9", "B10", "B12", "B1", "B15",
+                                "I20", "I25", "I19", "I29", "I17",
+                                "N40", "N42", "N32", "N35", "N31",
+                                "G50", "G46", "G59", "G51", "G60"}, 4)]
         public void A02_BingoVerticalLine(string[] bingoNumber, int bingoLine)
         {
             AssertResultShouldReturn(bingoNumber.ToList(), bingoLine);
