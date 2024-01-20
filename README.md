@@ -15,48 +15,27 @@
 - 檢查賓果卡
   - 賓果號碼在賓果卡必須連成垂直、水平或對角線才有賓果
 
+```js
+  class BingoGame
+    void pickBall()
+      GetLines() => output [ 'L3','L8' ]
+```
+
 ### 測試案例
-#### 產生賓果卡 (Bingo Card)
-| 'B' | 'I' | 'N' | 'G' | 'O' |
-| :----: | :----: | :----: | :----: | :----: |
-| 10 | 25 | 31 | 55 | 61 |
-| 2 | 17 | 45 | 59 | 70 |
-| 1 | 29 | 'FREE SPACE' | 51 | 74 |
-| 11 | 16 | 35 | 48 | 67 |
-| 15 | 22 | 41 | '54 | 66 |
+#### 賓果卡 (Bingo Card)
+<img src="images/bingo-card.jpg" alt="image" width="50%">
 
-| test case |
-| :----: |
-| CreateColumnB  |
-| CreateColumnI | 
-| CreateColumnN | 
-| CreateColumnG | 
-| CreateColumnO |
-| CreateBingoCard |
+#### 賓果線 (Bingo Line)
+<img src="images/bingo-line.jpg" alt="image" width="50%">
 
-#### 產生賓果號碼 (Bingo Numbers)
-['B10', 'I25', 'N31', 'G55', 'O61'] <br>
-['B10', 'I14', 'N31', 'G48', 'O66'] <br>
-['B15', 'I16', 'N31', 'G59', 'O61'] <br>
-['I25', 'I14', 'I29', 'I16', 'I22']
+#### `Vertical Line`
+| Input | Output |
+| :----: | :----: |
+| [10, 2, 1, 11, 15] | [ "V1" ] |
+| [10, 2, 1, 11, 15,<br>28, 17, 29, 16, 22] | [ "V1", "V2" ] |
+| [10, 2, 1, 11, 15,<br>28, 17, 29, 16, 22,<br>31, 45, 32, 35, 41] | [ "V1", "V2", "V3" ] |
+| [10, 2, 1, 11, 15,<br>28, 17, 29, 16, 22<br>31, 45, 32, 35, 41,<br>55, 59, 51, 48, 54] | [ "V1", "V2", "V3", "V4" ] |
+| [10, 2, 1, 11, 15,<br>28, 17, 29, 16, 22<br>31, 45, 32, 35, 41,<br>55, 59, 51, 48, 54,<br>61, 70, 74, 67, 65] | [ "V1", "V2", "V3", "V4", "V5" ] |
 
-| test case |
-| :----: |
-| CreateBRandomNumber |
-| CreateIRandomNumber | 
-| CreateNRandomNumber | 
-| CreateGRandomNumber | 
-| CreateORandomNumber |
-| GetBingoNumber |
-
-#### 檢查賓果 (Bingo Line)
-水平線 (vertical line) <br>
-重直線 (horizontal line) <br>
-對角線 (diagonal line)
-
-| test case |
-| :----: |
-| BingoNoLine |
-| BingoVerticalLine |
-| BingoHorizontalLine |
-| BingoDiagonalLine |
+#### `Horizontal Line`
+#### `Diagonal Line`
