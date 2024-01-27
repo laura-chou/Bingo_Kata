@@ -19,6 +19,8 @@
   class BingoGame
     
     List<int> pickNumbers
+
+    BingoCard bingoCard
     
     public void pickBall()
       var randomNumber = new Random();
@@ -28,6 +30,11 @@
       pickNumbers.push(number)
     
     public List<string> GetLines()
+      pickNumbers.ForEach(number =>
+      {
+        var catrgory = GetCatrgory(number)
+
+      })
 ```
 ```C#
   class BingoCard
@@ -39,7 +46,7 @@
 ```
 ```C#
   class CardNumber
-    public int BingoNumber { get; set; }  
+    public int Number { get; set; }  
     public bool IsBingo { get; set; }
 ```
 
