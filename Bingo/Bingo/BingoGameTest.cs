@@ -7,18 +7,36 @@ namespace Bingo
     [TestFixture]
     public class BingoGameTest
     {
-        [Test]
-        public void A01_VerticalLine()
+        private static readonly object[] VerticalLineTestCase =
         {
-            var bingoGame = new BingoGame();
-            bingoGame.BingoCard = GenerateBingoCard();
-            bingoGame.PickBall(10);
-            bingoGame.PickBall(2);
-            bingoGame.PickBall(1);
-            bingoGame.PickBall(11);
-            bingoGame.PickBall(15);
-            var actual = bingoGame.GetLine();
-            actual.Should().BeEquivalentTo(new List<string> { "V1" });
+            new object[] {new List<int> { 10, 2, 1, 11, 15 }, new List<string> { "V1" } },
+        };
+
+        private BingoGame _bingoGame;
+
+        [SetUp]
+        public void A00_SetUp()
+        {
+            _bingoGame = new BingoGame();
+        }
+
+        [Test]
+        [TestCaseSource(nameof(VerticalLineTestCase))]
+        public void A01_VerticalLine(List<int> pickNumbers, List<string> bingoLines)
+        {
+            _bingoGame.BingoCard = GenerateBingoCard();
+            FakePickBallNumbers(pickNumbers);
+            AssertResultShouldReturn(bingoLines);
+        }
+        private void AssertResultShouldReturn(List<string> expected)
+        {
+            var actual = _bingoGame.GetLine();
+            actual.Should().BeEquivalentTo(expected);
+        }
+
+        private void FakePickBallNumbers(List<int> pickNumbers)
+        {
+            pickNumbers.ForEach(_bingoGame.PickBall);
         }
 
         private BingoCard GenerateBingoCard()
