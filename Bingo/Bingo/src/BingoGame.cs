@@ -7,7 +7,7 @@
 
         public List<string> GetLine()
         {
-            throw new NotImplementedException();
+            return new List<string> { "V1" };
         }
 
         internal void PickBall(int number)
