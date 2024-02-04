@@ -10,7 +10,7 @@
             var bingoLines = new List<string>();
             pickNumbers.ForEach(number =>
             {
-                var column = ColumnCategory.B;
+                var column = GetColumnCategory(number);
                 if (column == ColumnCategory.B)
                 {
                     BingoCard.B.ForEach(cardNumber =>
@@ -27,6 +27,11 @@
                 bingoLines.Add("V1");
             }
             return bingoLines;
+        }
+
+        private ColumnCategory GetColumnCategory(int number)
+        {
+            return ColumnCategory.B;
         }
 
         internal void PickBall(int number)
