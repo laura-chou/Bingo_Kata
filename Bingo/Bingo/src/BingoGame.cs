@@ -8,30 +8,24 @@
         public List<string> GetLine()
         {
             var bingoLines = new List<string>();
+            var bingoCardColumnMapper = new Dictionary<ColumnCategory, List<CardNumber>> 
+            {
+                { ColumnCategory.B, BingoCard.B },
+                { ColumnCategory.I, BingoCard.I }
+            };
+
             pickNumbers.ForEach(number =>
             {
                 var column = GetColumnCategory(number);
-                if (column == ColumnCategory.B)
+                bingoCardColumnMapper[column].ForEach(cardNumber =>
                 {
-                    BingoCard.B.ForEach(cardNumber =>
+                    if (cardNumber.Number == number)
                     {
-                        if (cardNumber.Number == number)
-                        {
-                            cardNumber.IsBingo = true;
-                        }
-                    });
-                }
-                if (column == ColumnCategory.I)
-                {
-                    BingoCard.I.ForEach(cardNumber =>
-                    {
-                        if (cardNumber.Number == number)
-                        {
-                            cardNumber.IsBingo = true;
-                        }
-                    });
-                }
+                        cardNumber.IsBingo = true;
+                    }
+                });
             });
+
             if (BingoCard.B.Count(number => number.IsBingo) == 5)
             {
                 bingoLines.Add("V1");
@@ -40,7 +34,13 @@
             {
                 bingoLines.Add("V2");
             }
+
             return bingoLines;
+        }
+
+        internal void PickBall(int number)
+        {
+            pickNumbers.Add(number);
         }
 
         private ColumnCategory GetColumnCategory(int number)
@@ -50,11 +50,6 @@
                 return ColumnCategory.I;
             }
             return ColumnCategory.B;
-        }
-
-        internal void PickBall(int number)
-        {
-            pickNumbers.Add(number);
         }
     }
 }
