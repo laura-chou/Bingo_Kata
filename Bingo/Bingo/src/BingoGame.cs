@@ -7,7 +7,26 @@
 
         public List<string> GetLine()
         {
-            return new List<string> { "V1" };
+            var bingoLines = new List<string>();
+            pickNumbers.ForEach(number =>
+            {
+                var column = ColumnCategory.B;
+                if (column == ColumnCategory.B)
+                {
+                    BingoCard.B.ForEach(cardNumber =>
+                    {
+                        if (cardNumber.Number == number)
+                        {
+                            cardNumber.IsBingo = true;
+                        }
+                    });
+                }
+            });
+            if (BingoCard.B.Count(number => number.IsBingo) == 5)
+            {
+                bingoLines.Add("V1");
+            }
+            return bingoLines;
         }
 
         internal void PickBall(int number)
