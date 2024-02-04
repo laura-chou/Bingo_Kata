@@ -2,6 +2,7 @@
 {
     public enum ColumnCategory
     {
-        B
+        B,
+        I
     }
 }
