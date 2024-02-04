@@ -10,6 +10,7 @@ namespace Bingo
         private static readonly object[] VerticalLineTestCase =
         {
             new object[] {new List<int> { 10, 2, 1, 11, 15 }, new List<string> { "V1" } },
+            new object[] {new List<int> { 10, 2, 1, 11, 15, 28, 17, 29, 16, 22 }, new List<string> { "V1", "V2" } },
         };
 
         private BingoGame _bingoGame;
