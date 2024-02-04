@@ -30,26 +30,26 @@
       pickNumbers.push(number)
     
     public List<string> GetLines()
-      var bingoLine = new List<string>();
+      var bingoLines = new List<string>();
       pickNumbers.ForEach(number =>
       {
         // 判斷number的是屬於哪一欄(B,I,N,G,O)
-        var catrgory = GetCatrgory(number)
+        var catrgory = GetColumnCategory(number)
         // 檢查那一欄的數字是否有bingo
-        if (category == Category.B) {
+        if (category == ColumnCategory.B) {
           bingoCard.B.ForEach(cardNumber => { 
               if (cardNumber.Number == number)
               {
-                  number.IsBingo = true
+                  cardNumber.IsBingo = true
               }
           });
         }
         // 檢查賓果線
         if (bingoCard.B.Count(number => number.IsBingo) == 5) {
-          bingoLine.Add('V1')
+          bingoLines.Add('V1')
         }
       })
-      return bingoLine
+      return bingoLines
 ```
 ```C#
   class BingoCard
