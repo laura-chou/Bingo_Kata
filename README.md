@@ -21,44 +21,41 @@
     List<int> pickNumbers
 
     BingoCard bingoCard
-    
+
     public void pickBall()
       var randomNumber = new Random();
       pickNumbers.push(randomNumber)
     
     internal void pickBall(int number)
       pickNumbers.push(number)
-      // 判斷number的是屬於哪一欄(B,I,N,G,O)
-      var catrgory = GetColumnCategory(number)
-      // 檢查那一欄的數字是否有bingo
-      if (category == ColumnCategory.B) {
-        bingoCard.B.ForEach(cardNumber => { 
-            if (cardNumber.Number == number)
-            {
-                cardNumber.IsBingo = true
-            }
-        });
-      }
+      pickNumbers.ForEach(number =>
+      {
+        for (int row = 0; row < _bingoCard.Card.GetLength(1); row++)
+        {
+          for (int col = 0; col < _bingoCard.Card.GetLength(0); col++)
+          {
+              if (_bingoCard.Card[row, col] == number)
+              {
+                  _bingoCard.CheckBingoNumber[row, col] = true;
+              }
+          }
+        }
+      })
+
     
     public List<string> GetLines()
       var bingoLines = new List<string>();
-      pickNumbers.ForEach(number =>
+      // 檢查賓果線
+      foreach (var isbingo in _bingoCard.CheckBingoNumber)
       {
-        // 檢查賓果線
-        if (bingoCard.B.Count(number => number.IsBingo) == 5) {
-          bingoLines.Add('V1')
-        }
-      })
+          
+      }
       return bingoLines
 ```
 ```C#
   class BingoCard
-    Dictionary<ColumnCategory, List<CardNumber>>
-```
-```C#
-  class CardNumber
-    public int Number { get; set; }
-    public bool IsBingo { get; set; }
+    public int[,] Card { get; set; }
+    public bool[,] CheckBingoNumber { get; set; }
 ```
 
 ### 測試案例
