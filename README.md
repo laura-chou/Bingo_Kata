@@ -45,10 +45,22 @@
     
     public List<string> GetLines()
       var bingoLines = new List<string>();
-      // 檢查賓果線
-      foreach (var isbingo in _bingoCard.CheckBingoNumber)
+      var checkBingoNumber = _bingoCard.CheckBingoNumber;
+      for(int i=0; i < checkBingoNumber.GetLength(0); i++)
       {
-          
+        // 檢查橫線
+          if (checkBingoNumber[i, 0] && checkBingoNumber[i, 1]) {
+              int index = i+1;
+              bingoLines.Add("H"+(i+1))
+          }
+      }
+      for (int j = 0; j < checkBingoNumber.GetLength(1); j++)
+      {
+          // 檢查直線
+          if (checkBingoNumber[0, j] && checkBingoNumber[1, j] && checkBingoNumber[2, j]) {
+              Console.Write("V"+(j+1));
+          }
+
       }
       return bingoLines
 ```
