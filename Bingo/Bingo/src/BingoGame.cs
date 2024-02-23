@@ -8,7 +8,7 @@
 
         public List<string> GetLine()
         {
-            throw new NotImplementedException();
+            return new List<string> { "V1" };
         }
         public void PickBall()
         {
