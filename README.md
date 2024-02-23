@@ -96,7 +96,7 @@
 ```C#
   class BingoCard
     public int[,] Card { get; set; }
-    public bool[,] CheckBingoNumber { get; set; }
+    public bool[,] IsBingo { get; set; }
 ```
 
 ### 測試案例
