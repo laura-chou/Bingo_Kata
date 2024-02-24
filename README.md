@@ -30,13 +30,13 @@
       pickNumbers.push(number)
       pickNumbers.ForEach(number =>
       {
-        for (int row = 0; row < _bingoCard.Card.GetLength(1); row++)
+        for (int row = 0; row < bingoCard.Card.GetLength(1); row++)
         {
-          for (int col = 0; col < _bingoCard.Card.GetLength(0); col++)
+          for (int col = 0; col < bingoCard.Card.GetLength(0); col++)
           {
-              if (_bingoCard.Card[row, col] == number)
+              if (bingoCard.Card[row, col] == number)
               {
-                  _bingoCard.CheckBingoNumber[row, col] = true;
+                  bingoCard.IsBingo[row, col] = true;
               }
           }
         }
