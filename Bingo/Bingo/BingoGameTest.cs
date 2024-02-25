@@ -20,6 +20,7 @@ namespace Bingo
         [TestCase(new int[] { 28, 17, 29, 16, 22 }, new string[] { "V2" })]
         [TestCase(new int[] { 31, 45, 35, 41 }, new string[] { "V3" })]
         [TestCase(new int[] { 55, 59, 51, 48, 54 }, new string[] { "V4" })]
+        [TestCase(new int[] { 61, 70, 74, 67, 66 }, new string[] { "V5" })]
         public void A01_VerticalLine(int[] pickNumbers, string[] bingoLines)
         {
             AssertResultShouldReturn(pickNumbers, bingoLines);
@@ -49,7 +50,7 @@ namespace Bingo
                     { 2, 17, 45, 59, 70 },
                     { 1, 29, 0, 51, 74 },
                     { 11, 16, 35, 48, 67 },
-                    { 15, 22, 41, 54, 77 }
+                    { 15, 22, 41, 54, 66 }
                 },
                 IsBingo = new bool[5, 5]
             };
