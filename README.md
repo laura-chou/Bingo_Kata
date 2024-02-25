@@ -45,17 +45,17 @@
     
     public List<string> GetLines()
       var bingoLines = new List<string>();
-      var checkBingoNumber = _bingoCard.CheckBingoNumber;
-      var rows = checkBingoNumber.GetLength(0);
-      var cols = checkBingoNumber.GetLength(1);
+      var isBingo = _bingoCard.IsBingo;
+      var rows = isBingo.GetLength(0);
+      var cols = isBingo.GetLength(1);
       for(int col = 0; col < cols; col++)
       {
         // 檢查直線
-        if (checkBingoNumber[rows-1, col] &&
-            checkBingoNumber[rows-2, col] &&
-            checkBingoNumber[rows-3, col] &&
-            checkBingoNumber[rows-4, col] &&
-            checkBingoNumber[rows-5, col]) 
+        if (isBingo[rows-1, col] &&
+            isBingo[rows-2, col] &&
+            isBingo[rows-3, col] &&
+            isBingo[rows-4, col] &&
+            isBingo[rows-5, col]) 
         {
           bingoLines.Add("V"+(col+1));
         }
@@ -67,21 +67,21 @@
       for (int row = 0; row < rows; row++)
       {
         // 檢查橫線
-        if (checkBingoNumber[row, cols-1] &&
-            checkBingoNumber[row, cols-2] &&
-            checkBingoNumber[row, cols-3] &&
-            checkBingoNumber[row, cols-4] &&
-            checkBingoNumber[row, cols-5]) 
+        if (isBingo[row, cols-1] &&
+            isBingo[row, cols-2] &&
+            isBingo[row, cols-3] &&
+            isBingo[row, cols-4] &&
+            isBingo[row, cols-5]) 
         {
           bingoLines.Add("H"+(row+1));
         }
 
         // 檢查對角線
-        if (checkBingoNumber[row, row]) {
+        if (isBingo[row, row]) {
             checkD1Line++;
         }
         colIndex--;
-        if (checkBingoNumber[col, colIndex]) {
+        if (isBingo[col, colIndex]) {
             checkD2Line++;
         }
       }

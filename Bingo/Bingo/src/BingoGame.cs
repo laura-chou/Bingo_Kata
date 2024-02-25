@@ -2,40 +2,61 @@
 {
     public class BingoGame
     {
-        private List<int> pickNumbers = new List<int>();
-
-        public BingoCard BingoCard = new BingoCard();
+        private readonly BingoCard _bingoCard;
+        private readonly List<int> _pickNumbers;
+        private readonly int _totalColumns;
+        private readonly int _totalRows;
+        public BingoGame(BingoCard bingoCard)
+        {
+            _bingoCard = bingoCard;
+            _totalRows = bingoCard.Card.GetLength(0);
+            _totalColumns = bingoCard.Card.GetLength(1);
+            _pickNumbers = new List<int>();
+        }
 
         public List<string> GetLine()
         {
-            return new List<string> { "V1" };
+            var bingoLines = new List<string>();
+            var isBingo = _bingoCard.IsBingo;
+
+            // 檢查直線
+            for (int col = 0; col < _totalColumns; col++)
+            {
+                if (isBingo[0, col] &&
+                    isBingo[1, col] &&
+                    isBingo[2, col] &&
+                    isBingo[3, col] &&
+                    isBingo[4, col])
+                {
+                    bingoLines.Add("V" + (col + 1));
+                }
+            }
+
+            return bingoLines;
         }
 
         public void PickBall()
         {
             var random = new Random();
             var number = random.Next(1, 75);
-            if (!pickNumbers.Contains(number))
+            if (!_pickNumbers.Contains(number))
             {
-                pickNumbers.Add(number);
+                _pickNumbers.Add(number);
             }
         }
 
         internal void PickBall(int number)
         {
-            pickNumbers.Add(number);
-            pickNumbers.ForEach(number =>
+            _pickNumbers.Add(number);
+            _pickNumbers.ForEach(number =>
             {
-                int totalColumns = BingoCard.Card.GetLength(0);
-                int totalRows = BingoCard.Card.GetLength(1);
-
-                for (int row = 0; row < totalRows; row++)
+                for (int row = 0; row < _totalRows; row++)
                 {
-                    for (int col = 0; col < totalColumns; col++)
+                    for (int col = 0; col < _totalColumns; col++)
                     {
-                        if (BingoCard.Card[row, col] == number)
+                        if (_bingoCard.Card[row, col] == number)
                         {
-                            BingoCard.IsBingo[row, col] = true;
+                            _bingoCard.IsBingo[row, col] = true;
                         }
                     }
                 }

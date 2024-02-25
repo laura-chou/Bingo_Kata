@@ -12,8 +12,7 @@ namespace Bingo
         [SetUp]
         public void A00_SetUp()
         {
-            _bingoGame = new BingoGame();
-            _bingoGame.BingoCard = GenerateBingoCard();
+            _bingoGame = new BingoGame(GenerateBingoCard());
         }
 
         [Test]
