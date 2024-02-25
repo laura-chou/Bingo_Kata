@@ -61,6 +61,7 @@
                     }
                 }
             });
+            _bingoCard.IsBingo[_totalRows / 2, _totalColumns / 2] = true;
         }
     }
 }
