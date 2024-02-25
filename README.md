@@ -107,7 +107,7 @@
 <img src="images/bingo-line.jpg" alt="image" width="50%">
 
 #### `Vertical Line`
-| FakePickBallNumber | Output |
+| FakePickBallNumbers | Output |
 | :----: | :----: |
 | [10, 2, 1, 11, 15] | [ "V1" ] |
 | [28, 17, 29, 16, 22] | [ "V2" ] |
@@ -116,7 +116,7 @@
 | [61, 70, 74, 67, 65] | [ "V5" ] |
 
 #### `Horizontal Line`
-| FakePickBallNumber | Output |
+| FakePickBallNumbers | Output |
 | :----: | :----: |
 | [10, 28, 31, 55, 61] | [ "H1" ] |
 | [2, 17, 45, 59, 70] | [ "H2" ] |
@@ -125,13 +125,15 @@
 | [15, 22, 41, 54, 66] | [ "H5" ] |
 
 #### `Diagonal Line`
-| FakePickBallNumber | Output |
+| FakePickBallNumbers | Output |
 | :----: | :----: |
 | [10, 17, 48, 66] | [ "D1" ] |
 | [61, 59, 16, 15] | [ "D2" ] |
 
 ### `Multiple Lines`
-| FakePickBallNumber | Output |
+| FakePickBallNumbers | Output |
 | :----: | :----: |
-| [31, 45, 35, 41<br>1, 29, 51, 74] | [ "V3", "H3" ] |
-| [10, 2, 1, 11, 15<br>15, 22, 41, 54, 66<br>61, 59, 16, 15] | [ "V1", "H5", "D2" ] |
+| [31, 45, 35, 41, 1, 29, 51, 74] | [ "V3", "H3" ] |
+| [10, 2, 1, 11, 15, 22, 41, 54, 66, 61, 59, 16, 15] | [ "V1", "H5", "D2" ] |
+| [10, 17, 48, 66, 61, 59, 16, 15, 31, 45, 35, 41, 1, 29, 51, 74] | [ "V3", "H3", "D1", "D2" ] |
+| [28, 17, 29, 16, 22, 55, 59, 51, 48, 54, 2, 45, 70, 11, 35, 67, 10, 66] | [ "V2", "V4", "H2", "H4", "D1" ] |
