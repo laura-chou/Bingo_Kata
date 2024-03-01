@@ -32,6 +32,19 @@
                 }
             }
 
+            // 檢查橫線
+            for (int row = 0; row < _totalRows; row++)
+            {
+                if (isBingo[row, 0] &&
+                    isBingo[row, 1] &&
+                    isBingo[row, 2] &&
+                    isBingo[row, 3] &&
+                    isBingo[row, 4])
+                {
+                    bingoLines.Add("H" + (row + 1));
+                }
+            }
+
             return bingoLines;
         }
 
@@ -61,6 +74,7 @@
                     }
                 }
             });
+
             _bingoCard.IsBingo[_totalRows / 2, _totalColumns / 2] = true;
         }
     }
