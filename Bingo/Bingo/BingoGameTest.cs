@@ -25,6 +25,12 @@ namespace Bingo
         {
             AssertResultShouldReturn(pickNumbers, bingoLines);
         }
+        
+        [TestCase(new int[] { 10, 28, 31, 55, 61 }, new string[] { "H1" })]
+        public void A02_HorizontalLine(int[] pickNumbers, string[] bingoLines)
+        {
+            AssertResultShouldReturn(pickNumbers, bingoLines);
+        }
 
         private void AssertResultShouldReturn(int[] pickNumbers, string[] bingoLines)
         {
