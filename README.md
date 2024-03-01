@@ -130,7 +130,7 @@
 | [10, 17, 48, 66] | [ "D1" ] |
 | [61, 59, 16, 15] | [ "D2" ] |
 
-### `Multiple Lines`
+#### `Multiple Lines`
 | FakePickBallNumbers | Output |
 | :----: | :----: |
 | [31, 45, 35, 41, 1, 29, 51, 74] | [ "V3", "H3" ] |
