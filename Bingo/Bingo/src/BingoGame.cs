@@ -55,6 +55,15 @@
                 bingoLines.Add("D1");
             }
 
+            if (isBingo[0, 4] &&
+                isBingo[1, 3] &&
+                isBingo[2, 2] &&
+                isBingo[3, 1] &&
+                isBingo[4, 0])
+            {
+                bingoLines.Add("D2");
+            }
+
             return bingoLines;
         }
 
