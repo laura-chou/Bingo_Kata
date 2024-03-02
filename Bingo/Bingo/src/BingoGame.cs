@@ -45,6 +45,16 @@
                 }
             }
 
+            // 檢查對角線
+            if (isBingo[0, 0] &&
+                isBingo[1, 1] &&
+                isBingo[2, 2] &&
+                isBingo[3, 3] &&
+                isBingo[4, 4])
+            {
+                bingoLines.Add("D1");
+            }
+
             return bingoLines;
         }
 
