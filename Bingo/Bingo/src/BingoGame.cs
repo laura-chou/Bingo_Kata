@@ -46,20 +46,33 @@
             }
 
             // 檢查對角線
-            if (isBingo[0, 0] &&
-                isBingo[1, 1] &&
-                isBingo[2, 2] &&
-                isBingo[3, 3] &&
-                isBingo[4, 4])
+            var countD1 = 0;
+            var countD2 = 0;
+            for (int col = 0; col < _totalColumns; col++)
+            {
+                for (int row = 0; row < _totalRows; row++)
+                {
+                    if (isBingo[row, col])
+                    {
+                        if (col == row)
+                        {
+                            countD1++;
+                        }
+
+                        if (col + row == 4)
+                        {
+                            countD2++;
+                        }
+                    }
+                }
+            }
+
+            if (countD1 == 5)
             {
                 bingoLines.Add("D1");
             }
 
-            if (isBingo[0, 4] &&
-                isBingo[1, 3] &&
-                isBingo[2, 2] &&
-                isBingo[3, 1] &&
-                isBingo[4, 0])
+            if (countD2 == 5)
             {
                 bingoLines.Add("D2");
             }
