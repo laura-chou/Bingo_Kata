@@ -44,6 +44,7 @@ namespace Bingo
         }
         
         [TestCase(new int[] { 31, 45, 35, 41, 1, 29, 51, 74 }, new string[] { "V3", "H3" })]
+        [TestCase(new int[] { 10, 2, 1, 11, 15, 22, 41, 54, 66, 61, 59, 16, 15 }, new string[] { "V1", "H5", "D2" })]
         public void A04_MultipleLine(int[] pickNumbers, string[] bingoLines)
         {
             AssertResultShouldReturn(pickNumbers, bingoLines);
