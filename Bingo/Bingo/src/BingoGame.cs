@@ -18,64 +18,18 @@
         {
             var bingoLines = new List<string>();
             var isBingo = _bingoCard.IsBingo;
-
+          
             // 檢查直線
-            for (int col = 0; col < _totalColumns; col++)
-            {
-                if (isBingo[0, col] &&
-                    isBingo[1, col] &&
-                    isBingo[2, col] &&
-                    isBingo[3, col] &&
-                    isBingo[4, col])
-                {
-                    bingoLines.Add("V" + (col + 1));
-                }
-            }
+            var vl = new VerticalLine(isBingo);
+            bingoLines.AddRange(vl.GetBingoLine());
 
             // 檢查橫線
-            for (int row = 0; row < _totalRows; row++)
-            {
-                if (isBingo[row, 0] &&
-                    isBingo[row, 1] &&
-                    isBingo[row, 2] &&
-                    isBingo[row, 3] &&
-                    isBingo[row, 4])
-                {
-                    bingoLines.Add("H" + (row + 1));
-                }
-            }
+            var hl = new HorizontalLine(isBingo);
+            bingoLines.AddRange(hl.GetBingoLine());
 
             // 檢查對角線
-            var countD1 = 0;
-            var countD2 = 0;
-            for (int col = 0; col < _totalColumns; col++)
-            {
-                for (int row = 0; row < _totalRows; row++)
-                {
-                    if (isBingo[row, col])
-                    {
-                        if (col == row)
-                        {
-                            countD1++;
-                        }
-
-                        if (col + row == 4)
-                        {
-                            countD2++;
-                        }
-                    }
-                }
-            }
-
-            if (countD1 == 5)
-            {
-                bingoLines.Add("D1");
-            }
-
-            if (countD2 == 5)
-            {
-                bingoLines.Add("D2");
-            }
+            var dl = new DiagonalLine(isBingo);
+            bingoLines.AddRange(dl.GetBingoLine());
 
             return bingoLines;
         }
