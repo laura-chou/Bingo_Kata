@@ -1,25 +1,23 @@
 ﻿namespace Bingo.src
 {
-    public class DiagonalLine
+    public class DiagonalLine : LineBase
     {
-        private readonly bool[,] _isBingo;
-
         public DiagonalLine(bool[,] isBingo)
         {
-            this._isBingo = isBingo;
+            IsBingo = isBingo;
         }
 
-        public List<string> GetBingoLine()
+        public override List<string> GetBingoLine()
         {
             var bingoLines = new List<string>();
             var countD1 = 0;
             var countD2 = 0;
             
-            for (int col = 0; col < _isBingo.GetLength(1); col++)
+            for (int col = 0; col < TotalColumn; col++)
             {
-                for (int row = 0; row < _isBingo.GetLength(0); row++)
+                for (int row = 0; row < TotalRow; row++)
                 {
-                    if (_isBingo[row, col])
+                    if (IsBingo[row, col])
                     {
                         if (col == row)
                         {

@@ -1,25 +1,23 @@
 ﻿namespace Bingo.src
 {
-    internal class HorizontalLine
+    public class HorizontalLine : LineBase
     {
-        private readonly bool[,] _isBingo;
-
         public HorizontalLine(bool[,] isBingo)
         {
-            _isBingo = isBingo;
+            IsBingo = isBingo;
         }
 
-        public List<string> GetBingoLine()
+        public override List<string> GetBingoLine()
         {
             var bingoLines = new List<string>();
 
-            for (int row = 0; row < _isBingo.GetLength(0); row++)
+            for (int row = 0; row < TotalRow; row++)
             {
-                if (_isBingo[row, 0] &&
-                    _isBingo[row, 1] &&
-                    _isBingo[row, 2] &&
-                    _isBingo[row, 3] &&
-                    _isBingo[row, 4])
+                if (IsBingo[row, 0] &&
+                    IsBingo[row, 1] &&
+                    IsBingo[row, 2] &&
+                    IsBingo[row, 3] &&
+                    IsBingo[row, 4])
                 {
                     bingoLines.Add("H" + (row + 1));
                 }

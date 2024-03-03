@@ -1,25 +1,23 @@
 ﻿namespace Bingo.src
 {
-    public class VerticalLine
+    public class VerticalLine : LineBase
     {
-        private readonly bool[,] _isBingo;
-        
         public VerticalLine(bool[,] isBingoArray)
         {
-            _isBingo = isBingoArray;
+            IsBingo = isBingoArray;
         }
 
-        public List<string> GetBingoLine()
+        public override List<string> GetBingoLine()
         {
             var bingoLines = new List<string>();
 
-            for (int col = 0; col < _isBingo.GetLength(1); col++)
+            for (int col = 0; col < TotalColumn; col++)
             {
-                if (_isBingo[0, col] &&
-                    _isBingo[1, col] &&
-                    _isBingo[2, col] &&
-                    _isBingo[3, col] &&
-                    _isBingo[4, col])
+                if (IsBingo[0, col] &&
+                    IsBingo[1, col] &&
+                    IsBingo[2, col] &&
+                    IsBingo[3, col] &&
+                    IsBingo[4, col])
                 {
                     bingoLines.Add("V" + (col + 1));
                 }
