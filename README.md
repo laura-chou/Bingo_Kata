@@ -26,32 +26,40 @@
 #### `No Line`
 | FakePickBallNumber | Output |
 | :----: | :----: |
-| [36, 11, 5, 75, 40] | "no winner. player A get 0 line, player B get 0 line. |
+| [36, 11, 5, 75, 40] | no winner. player A get 0 line, player B get 0 line. |
 
 #### `Vertical Line`
 | FakePickBallNumber | Output |
 | :----: | :----: |
-| [10, 2, 1, 11, 15] | "player A wins. player A get 1 line (V1), player B get 0 line. |
-| [46, 51, 48, 57, 59] | "player B wins. player A get 0 line, player B get 1 lines (V4). |
-| [55, 59, 51, 48, 54, 32, 44, 35, 42] | "no winner. player A get 1 line (V4), player B get 1 line (V3). |
-| [28, 17, 29, 16, 22, 31, 45, 35, 41] | "player A wins. player A get 2 lines (V2,V3), player B get 0 line. |
-| [10, 14, 2, 8, 6, 65, 74, 62, 66, 71] | "player B wins. player A get 0 line, player B get 2 lines (V1,V5). |
+| [10, 2, 1, 11, 15] | player A wins. player A get 1 line (V1), player B get 0 line. |
+| [46, 51, 48, 57, 59] | player B wins. player A get 0 line, player B get 1 line (V4). |
+| [55, 59, 51, 48, 54, 32, 44, 35, 42] | no winner. player A get 1 line (V4), player B get 1 line (V3). |
+| [28, 17, 29, 16, 22, 31, 45, 35, 41] | player A wins. player A get 2 lines (V2,V3), player B get 0 line. |
+| [10, 14, 2, 8, 6, 65, 74, 62, 66, 71] | player B wins. player A get 0 line, player B get 2 lines (V1,V5). |
 
 #### `Horizontal Line`
 | FakePickBallNumber | Output |
 | :----: | :----: |
-| [10, 28, 31, 55, 61] | "player A wins. player A get 1 line (H1), player B get 0 line. |
-| [8, 18, 35, 57, 66] | "player B wins. player A get 0 line, player B get 1 lines (H4). |
-| [11, 16, 35, 48, 67, 2, 29, 48, 62] | "no winner. player A get 1 line (H4), player B get 1 line (H3). |
+| [10, 28, 31, 55, 61] | player A wins. player A get 1 line (H1), player B get 0 line. |
+| [8, 18, 35, 57, 66] | player B wins. player A get 0 line, player B get 1 line (H4). |
+| [11, 16, 35, 48, 67, 2, 29, 48, 62] | no winner. player A get 1 line (H4), player B get 1 line (H3). |
+| [2, 17, 45, 59, 70, 1, 29, 51, 74] | player A wins. player A get 2 lines (H2,H3), player B get 0 line. |
+| [10, 16, 32, 46, 65, 6, 25, 42, 59, 71] | player B wins. player A get 0 line, player B get 2 lines (H1,H5). |
 
 #### `Diagonal Line`
 | FakePickBallNumber | Output |
 | :----: | :----: |
-| [10, 17, 48, 66] | [ "D1" ] |
-| [61, 59, 16, 15] | [ "D2" ] |
+| [10, 17, 48, 66] | player A wins. player A get 1 line (D1), player B get 0 line. |
+| [10, 22, 57, 71] | player B wins. player A get 0 line, player B get 1 line (D1). |
+| [61, 59, 16, 15] | player A wins. player A get 1 line (D2), player B get 0 line. |
+| [65, 51, 18, 6] | player B wins. player A get 0 line, player B get 1 line (D2). |
+| [10, 17, 48, 66, 22, 57, 71] | no winner. player A get 1 line (D1), player B get 1 line (D1). |
 
 ### `Multiple Lines`
 | FakePickBallNumber | Output |
 | :----: | :----: |
-| [31, 45, 35, 41<br>1, 29, 51, 74] | [ "V3", "H3" ] |
-| [10, 2, 1, 11, 15<br>15, 22, 41, 54, 66<br>61, 59, 16, 15] | [ "V1", "H5", "D2" ] |
+| [31, 45, 35, 41, 1, 29, 51, 74] | player A wins. player A get 2 lines (V3,H3), player B get 0 line. |
+| [32, 44, 35, 42, 2, 29, 48, 62] | player B wins. player A get 0 line, player B get 2 lines (V3,H3). |
+| [31, 45, 35, 41, 1, 29, 51, 74, 10, 17, 48, 66, 61, 59, 16, 15] | player A wins. player A get 4 lines (V3,H3,D1,D2), player B get 0 line. |
+| [32, 44, 35, 42, 2, 29, 48, 62, 10, 22, 57, 71, 65, 51, 18, 6] | player B wins. player A get 0 line, player B get 4 lines (V3,H3,D1,D2). |
+| [10, 2, 1, 11, 15, 61, 70, 74, 67, 66, 17, 45, 59, 16, 35, 48, 22, 29, 18, 25, 46, 51, 57, 32, 65, 6, 42, 71] | no winner. player A get 5 lines (V1,V5,H2,H4,D2), player B get 5 lines (V2,V4,H1,H5,D1). |
