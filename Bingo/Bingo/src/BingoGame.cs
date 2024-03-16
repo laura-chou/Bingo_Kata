@@ -1,4 +1,6 @@
-﻿namespace Bingo.src
+﻿using System.Text;
+
+namespace Bingo.src
 {
     public class BingoGame
     {
@@ -11,7 +13,26 @@
 
         public string GameResult()
         {
-            return "no winner. player A get 0 line, player B get 0 line.";
+            var result = new StringBuilder();
+
+            var player1Name = bingoCards[0].PlayerName;
+            var player2Name = bingoCards[1].PlayerName;
+            
+            bingoCards[0].BingoLines = new List<string>();
+            bingoCards[1].BingoLines = new List<string>();
+            
+            var player1BingoLines = bingoCards[0].BingoLines;
+            var player2BingoLines = bingoCards[1].BingoLines;
+
+            if (player1BingoLines.Count == player2BingoLines.Count)
+            {
+                result.Append("no winner. ");
+            }
+
+            result.Append($"{player1Name} get {player1BingoLines.Count} line, ");
+            result.Append($"{player2Name} get {player2BingoLines.Count} line.");
+
+            return result.ToString();
         }
 
         public void PickBall()
