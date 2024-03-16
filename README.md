@@ -24,12 +24,12 @@
 <img src="images/bingo-line.jpg" alt="image" width="50%">
 
 #### `No Line`
-| FakePickBallNumber | Output |
+| FakePickBallNumbers | Output |
 | :----: | :----: |
 | [36, 11, 5, 75, 40] | no winner. player A get 0 line, player B get 0 line. |
 
 #### `Vertical Line`
-| FakePickBallNumber | Output |
+| FakePickBallNumbers | Output |
 | :----: | :----: |
 | [10, 2, 1, 11, 15] | player A wins. player A get 1 line (V1), player B get 0 line. |
 | [46, 51, 48, 57, 59] | player B wins. player A get 0 line, player B get 1 line (V4). |
@@ -38,7 +38,7 @@
 | [10, 14, 2, 8, 6, 65, 74, 62, 66, 71] | player B wins. player A get 0 line, player B get 2 lines (V1,V5). |
 
 #### `Horizontal Line`
-| FakePickBallNumber | Output |
+| FakePickBallNumbers | Output |
 | :----: | :----: |
 | [10, 28, 31, 55, 61] | player A wins. player A get 1 line (H1), player B get 0 line. |
 | [8, 18, 35, 57, 66] | player B wins. player A get 0 line, player B get 1 line (H4). |
@@ -47,7 +47,7 @@
 | [10, 16, 32, 46, 65, 6, 25, 42, 59, 71] | player B wins. player A get 0 line, player B get 2 lines (H1,H5). |
 
 #### `Diagonal Line`
-| FakePickBallNumber | Output |
+| FakePickBallNumbers | Output |
 | :----: | :----: |
 | [10, 17, 48, 66] | player A wins. player A get 1 line (D1), player B get 0 line. |
 | [10, 22, 57, 71] | player B wins. player A get 0 line, player B get 1 line (D1). |
@@ -56,7 +56,7 @@
 | [10, 17, 48, 66, 22, 57, 71] | no winner. player A get 1 line (D1), player B get 1 line (D1). |
 
 ### `Multiple Lines`
-| FakePickBallNumber | Output |
+| FakePickBallNumbers | Output |
 | :----: | :----: |
 | [31, 45, 35, 41, 1, 29, 51, 74] | player A wins. player A get 2 lines (V3,H3), player B get 0 line. |
 | [32, 44, 35, 42, 2, 29, 48, 62] | player B wins. player A get 0 line, player B get 2 lines (V3,H3). |
