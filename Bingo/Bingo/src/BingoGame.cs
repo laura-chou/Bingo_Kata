@@ -2,9 +2,8 @@
 {
     public class BingoGame
     {
-        private List<int> pickNumbers = new List<int>();
         private List<BingoCard> bingoCards;
-
+        private List<int> pickNumbers = new List<int>();
         public BingoGame(List<BingoCard> bingoCards)
         {
             this.bingoCards = bingoCards;
@@ -12,8 +11,9 @@
 
         public string GameResult()
         {
-            throw new NotImplementedException();
+            return "no winner. player A get 0 line, player B get 0 line.";
         }
+
         public void PickBall()
         {
             var random = new Random();
