@@ -24,9 +24,20 @@ namespace Bingo.src
             if (player1BingoLines.Count == player2BingoLines.Count)
             {
                 result.Append("no winner. ");
+            } 
+            else
+            {
+                var winner = player1BingoLines.Count > player2BingoLines.Count
+                    ? player1Name
+                    : player2Name;
+
+                result.Append(winner + " wins. ");
             }
 
-            result.Append($"{player1Name} get {player1BingoLines.Count} line, ");
+            var player1LineDetail = player1BingoLines.Count > 0
+                ? $" ({string.Join(",", player1BingoLines)})"
+                : string.Empty;
+            result.Append($"{player1Name} get {player1BingoLines.Count} line{player1LineDetail}, ");
             result.Append($"{player2Name} get {player2BingoLines.Count} line.");
 
             return result.ToString();
@@ -35,6 +46,19 @@ namespace Bingo.src
         private List<string> GetLines(bool[,] isBingo)
         {
             var bingoLines = new List<string>();
+            
+            for (int col = 0; col < 5; col++)
+            {
+                if (isBingo[0, col] &&
+                    isBingo[1, col] &&
+                    isBingo[2, col] &&
+                    isBingo[3, col] &&
+                    isBingo[4, col])
+                {
+                    bingoLines.Add("V" + (col + 1));
+                }
+            }
+
             return bingoLines;
         }
 
