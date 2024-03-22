@@ -17,10 +17,10 @@ namespace Bingo.src
 
             var player1Name = bingoCards[0].PlayerName;
             var player2Name = bingoCards[1].PlayerName;
-            
+
             bingoCards[0].BingoLines = new List<string>();
             bingoCards[1].BingoLines = new List<string>();
-            
+
             var player1BingoLines = bingoCards[0].BingoLines;
             var player2BingoLines = bingoCards[1].BingoLines;
 
@@ -48,6 +48,29 @@ namespace Bingo.src
         internal void PickBall(int number)
         {
             pickNumbers.Add(number);
+            pickNumbers.ForEach(number =>
+            {
+                var player1Card = bingoCards[0].Card;
+                var player2Card = bingoCards[1].Card;
+
+                var totalColumns = player1Card.GetLength(0);
+                var totalRows = player1Card.GetLength(1);
+
+                for (int row = 0; row < totalRows; row++)
+                {
+                    for (int col = 0; col < totalColumns; col++)
+                    {
+                        if (player1Card[row, col] == number)
+                        {
+                            bingoCards[0].IsBingo[row, col] = true;
+                        }
+                        if (player2Card[row, col] == number)
+                        {
+                            bingoCards[1].IsBingo[row, col] = true;
+                        }
+                    }
+                }
+            });
         }
     }
 }
