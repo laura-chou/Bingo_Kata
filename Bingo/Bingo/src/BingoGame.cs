@@ -18,11 +18,8 @@ namespace Bingo.src
             var player1Name = bingoCards[0].PlayerName;
             var player2Name = bingoCards[1].PlayerName;
 
-            bingoCards[0].BingoLines = new List<string>();
-            bingoCards[1].BingoLines = new List<string>();
-
-            var player1BingoLines = bingoCards[0].BingoLines;
-            var player2BingoLines = bingoCards[1].BingoLines;
+            var player1BingoLines = GetLines(bingoCards[0].IsBingo);
+            var player2BingoLines = GetLines(bingoCards[1].IsBingo);
 
             if (player1BingoLines.Count == player2BingoLines.Count)
             {
@@ -33,6 +30,12 @@ namespace Bingo.src
             result.Append($"{player2Name} get {player2BingoLines.Count} line.");
 
             return result.ToString();
+        }
+
+        private List<string> GetLines(bool[,] isBingo)
+        {
+            var bingoLines = new List<string>();
+            return bingoLines;
         }
 
         public void PickBall()
