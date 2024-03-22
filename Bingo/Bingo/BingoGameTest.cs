@@ -21,6 +21,13 @@ namespace Bingo
         {
             AssertResultShouldReturn(fakePickBallNumbers, output);
         }
+        
+        [Test]
+        [TestCase(new int[] { 10, 2, 1, 11, 15 }, "player A wins. player A get 1 line (V1), player B get 0 line.")]
+        public void A02_VerticalLine(int[] fakePickBallNumbers, string output)
+        {
+            AssertResultShouldReturn(fakePickBallNumbers, output);
+        }
 
         private List<BingoCard> GenerateBingoCard()
         {
