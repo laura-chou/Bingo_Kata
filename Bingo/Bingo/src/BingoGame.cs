@@ -21,48 +21,26 @@ namespace Bingo.src
             var player1BingoLines = GetLines(player1Info.IsBingo);
             var player2BingoLines = GetLines(player2Info.IsBingo);
 
-            if (player1BingoLines.Count == player2BingoLines.Count)
+            var player1LinesCount = player1BingoLines.Count;
+            var player2LinesCount = player2BingoLines.Count;
+
+            if (player1LinesCount == player2LinesCount)
             {
                 result.Append("no winner. ");
-            } 
+            }
             else
             {
-                var winner = player1BingoLines.Count > player2BingoLines.Count
+                var winner = player1LinesCount > player2LinesCount
                     ? player1Info.PlayerName
                     : player2Info.PlayerName;
 
                 result.Append(winner + " wins. ");
             }
 
-            var player1LineDetail = player1BingoLines.Count > 0
-                ? $" ({string.Join(",", player1BingoLines)})"
-                : string.Empty;
-            var player2LineDetail = player2BingoLines.Count > 0
-                ? $" ({string.Join(",", player2BingoLines)})"
-                : string.Empty;
-            result.Append($"{player1Info.PlayerName} get {player1BingoLines.Count} line{player1LineDetail}, ");
-            result.Append($"{player2Info.PlayerName} get {player2BingoLines.Count} line{player2LineDetail}.");
+            result.Append($"{player1Info.PlayerName} get {player1LinesCount} line{GetPlayerLineDetail(player1BingoLines)}, ");
+            result.Append($"{player2Info.PlayerName} get {player2LinesCount} line{GetPlayerLineDetail(player2BingoLines)}.");
 
             return result.ToString();
-        }
-
-        private List<string> GetLines(bool[,] isBingo)
-        {
-            var bingoLines = new List<string>();
-            
-            for (int col = 0; col < 5; col++)
-            {
-                if (isBingo[0, col] &&
-                    isBingo[1, col] &&
-                    isBingo[2, col] &&
-                    isBingo[3, col] &&
-                    isBingo[4, col])
-                {
-                    bingoLines.Add("V" + (col + 1));
-                }
-            }
-
-            return bingoLines;
         }
 
         public void PickBall()
@@ -101,6 +79,32 @@ namespace Bingo.src
                     }
                 }
             });
+        }
+
+        private List<string> GetLines(bool[,] isBingo)
+        {
+            var bingoLines = new List<string>();
+
+            for (int col = 0; col < 5; col++)
+            {
+                if (isBingo[0, col] &&
+                    isBingo[1, col] &&
+                    isBingo[2, col] &&
+                    isBingo[3, col] &&
+                    isBingo[4, col])
+                {
+                    bingoLines.Add("V" + (col + 1));
+                }
+            }
+
+            return bingoLines;
+        }
+
+        private string GetPlayerLineDetail(List<string> playerBingoLines)
+        {
+            return playerBingoLines.Count > 0
+                ? $" ({string.Join(",", playerBingoLines)})"
+                : string.Empty;
         }
     }
 }
