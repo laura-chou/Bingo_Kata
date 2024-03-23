@@ -37,8 +37,11 @@ namespace Bingo.src
             var player1LineDetail = player1BingoLines.Count > 0
                 ? $" ({string.Join(",", player1BingoLines)})"
                 : string.Empty;
+            var player2LineDetail = player2BingoLines.Count > 0
+                ? $" ({string.Join(",", player2BingoLines)})"
+                : string.Empty;
             result.Append($"{player1Info.PlayerName} get {player1BingoLines.Count} line{player1LineDetail}, ");
-            result.Append($"{player2Info.PlayerName} get {player2BingoLines.Count} line.");
+            result.Append($"{player2Info.PlayerName} get {player2BingoLines.Count} line{player2LineDetail}.");
 
             return result.ToString();
         }
