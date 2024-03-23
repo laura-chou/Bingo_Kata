@@ -68,11 +68,11 @@ namespace Bingo.src
                 {
                     for (int col = 0; col < totalColumns; col++)
                     {
-                        if (player1Card[row, col] == number)
+                        if (player1Card[row, col] == number || player1Card[row, col] == 0)
                         {
                             bingoCards[0].IsBingo[row, col] = true;
                         }
-                        if (player2Card[row, col] == number)
+                        if (player2Card[row, col] == number || player2Card[row, col] == 0)
                         {
                             bingoCards[1].IsBingo[row, col] = true;
                         }
