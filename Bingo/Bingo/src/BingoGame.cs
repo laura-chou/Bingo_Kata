@@ -15,11 +15,11 @@ namespace Bingo.src
         {
             var result = new StringBuilder();
 
-            var player1Name = bingoCards[0].PlayerName;
-            var player2Name = bingoCards[1].PlayerName;
+            var player1Info = bingoCards[0];
+            var player2Info = bingoCards[1];
 
-            var player1BingoLines = GetLines(bingoCards[0].IsBingo);
-            var player2BingoLines = GetLines(bingoCards[1].IsBingo);
+            var player1BingoLines = GetLines(player1Info.IsBingo);
+            var player2BingoLines = GetLines(player2Info.IsBingo);
 
             if (player1BingoLines.Count == player2BingoLines.Count)
             {
@@ -28,8 +28,8 @@ namespace Bingo.src
             else
             {
                 var winner = player1BingoLines.Count > player2BingoLines.Count
-                    ? player1Name
-                    : player2Name;
+                    ? player1Info.PlayerName
+                    : player2Info.PlayerName;
 
                 result.Append(winner + " wins. ");
             }
@@ -37,8 +37,8 @@ namespace Bingo.src
             var player1LineDetail = player1BingoLines.Count > 0
                 ? $" ({string.Join(",", player1BingoLines)})"
                 : string.Empty;
-            result.Append($"{player1Name} get {player1BingoLines.Count} line{player1LineDetail}, ");
-            result.Append($"{player2Name} get {player2BingoLines.Count} line.");
+            result.Append($"{player1Info.PlayerName} get {player1BingoLines.Count} line{player1LineDetail}, ");
+            result.Append($"{player2Info.PlayerName} get {player2BingoLines.Count} line.");
 
             return result.ToString();
         }
