@@ -18,11 +18,8 @@ namespace Bingo.src
             var player1Info = bingoCards[0];
             var player2Info = bingoCards[1];
 
-            var player1BingoLines = GetLines(player1Info.IsBingo);
-            var player2BingoLines = GetLines(player2Info.IsBingo);
-
-            var player1LinesCount = player1BingoLines.Count;
-            var player2LinesCount = player2BingoLines.Count;
+            var player1LinesCount = GetLines(player1Info.IsBingo).Count;
+            var player2LinesCount = GetLines(player2Info.IsBingo).Count;
 
             if (player1LinesCount == player2LinesCount)
             {
@@ -37,8 +34,13 @@ namespace Bingo.src
                 result.Append(winner + " wins. ");
             }
 
-            result.Append($"{player1Info.PlayerName}{GetLineCountMsg(player1LinesCount)}{GetPlayerLineDetail(player1BingoLines)}, ");
-            result.Append($"{player2Info.PlayerName}{GetLineCountMsg(player2LinesCount)}{GetPlayerLineDetail(player2BingoLines)}.");
+            var index = 0;
+            bingoCards.ForEach(bingoCard =>
+            {
+                result.Append($"{bingoCard.PlayerName}{GetLineCountMsg(bingoCard.IsBingo)}{GetLineDetail(GetLines(bingoCard.IsBingo))}");
+                result.Append(index == 0 ? ", " : ".");
+                index++;
+            });
 
             return result.ToString();
         }
@@ -81,11 +83,19 @@ namespace Bingo.src
             });
         }
 
-        private string GetLineCountMsg(int playerLinesCount)
+        private string GetLineCountMsg(bool[,] isBingo)
         {
-            var isPlural = playerLinesCount > 1 ? "s" : string.Empty;
-            return $" get {playerLinesCount} line{isPlural}";
+            var lineCount = GetLines(isBingo).Count;
+            var isPlural = lineCount > 1 ? "s" : string.Empty;
+            return $" get {lineCount} line{isPlural}";
         }
+        private string GetLineDetail(List<string> playerBingoLines)
+        {
+            return playerBingoLines.Count > 0
+                ? $" ({string.Join(",", playerBingoLines)})"
+                : string.Empty;
+        }
+
         private List<string> GetLines(bool[,] isBingo)
         {
             var bingoLines = new List<string>();
@@ -103,13 +113,6 @@ namespace Bingo.src
             }
 
             return bingoLines;
-        }
-
-        private string GetPlayerLineDetail(List<string> playerBingoLines)
-        {
-            return playerBingoLines.Count > 0
-                ? $" ({string.Join(",", playerBingoLines)})"
-                : string.Empty;
         }
     }
 }
