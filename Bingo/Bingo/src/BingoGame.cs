@@ -37,7 +37,7 @@ namespace Bingo.src
                 result.Append(winner + " wins. ");
             }
 
-            result.Append($"{player1Info.PlayerName} get {player1LinesCount} line{GetPlayerLineDetail(player1BingoLines)}, ");
+            result.Append($"{player1Info.PlayerName} get {player1LinesCount + (player1LinesCount > 1 ? " lines" : " line")}{GetPlayerLineDetail(player1BingoLines)}, ");
             result.Append($"{player2Info.PlayerName} get {player2LinesCount} line{GetPlayerLineDetail(player2BingoLines)}.");
 
             return result.ToString();
