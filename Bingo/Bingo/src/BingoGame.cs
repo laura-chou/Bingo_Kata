@@ -37,8 +37,8 @@ namespace Bingo.src
                 result.Append(winner + " wins. ");
             }
 
-            result.Append($"{player1Info.PlayerName} get {player1LinesCount + (player1LinesCount > 1 ? " lines" : " line")}{GetPlayerLineDetail(player1BingoLines)}, ");
-            result.Append($"{player2Info.PlayerName} get {player2LinesCount} line{GetPlayerLineDetail(player2BingoLines)}.");
+            result.Append($"{player1Info.PlayerName}{GetLineCountMsg(player1LinesCount)}{GetPlayerLineDetail(player1BingoLines)}, ");
+            result.Append($"{player2Info.PlayerName}{GetLineCountMsg(player2LinesCount)}{GetPlayerLineDetail(player2BingoLines)}.");
 
             return result.ToString();
         }
@@ -81,6 +81,11 @@ namespace Bingo.src
             });
         }
 
+        private string GetLineCountMsg(int playerLinesCount)
+        {
+            var isPlural = playerLinesCount > 1 ? "s" : string.Empty;
+            return $" get {playerLinesCount} line{isPlural}";
+        }
         private List<string> GetLines(bool[,] isBingo)
         {
             var bingoLines = new List<string>();
