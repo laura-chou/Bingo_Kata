@@ -27,6 +27,7 @@ namespace Bingo
         [TestCase(new int[] { 46, 51, 48, 57, 59 }, "player B wins. player A get 0 line, player B get 1 line (V4).")]
         [TestCase(new int[] { 55, 59, 51, 48, 54, 32, 44, 35, 42 }, "no winner. player A get 1 line (V4), player B get 1 line (V3).")]
         [TestCase(new int[] { 28, 17, 29, 16, 22, 31, 45, 35, 41 }, "player A wins. player A get 2 lines (V2,V3), player B get 0 line.")]
+        [TestCase(new int[] { 10, 14, 2, 8, 6, 65, 74, 62, 66, 71 }, "player B wins. player A get 0 line, player B get 2 lines (V1,V5).")]
         public void A02_VerticalLine(int[] fakePickBallNumbers, string output)
         {
             AssertResultShouldReturn(fakePickBallNumbers, output);
